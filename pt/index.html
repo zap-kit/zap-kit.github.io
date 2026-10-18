@@ -1,5 +1,39 @@
 <!doctype html>
-<html lang="pt"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Zap</title><link href="../logo.svg" rel="icon" type="image/svg+xml"><meta content="A cara do Python, a velocidade do C, a gestão de memória do Rust." name="description"><link href="../en/index.html" hreflang="en" rel="alternate"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=IBM+Plex+Sans:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"><link href="../style.css" rel="stylesheet"></head><body><nav class="top"><div class="inner"><a class="mark" href="./"><img alt="" class="logo" src="../logo.svg">Zap</a><span class="navlinks"><a href="https://github.com/zap-kit/zap">GitHub</a><a href="../en/index.html" hreflang="en" lang="en">English</a></span></div></nav><div class="wrap"><header class="hero"><div class="pitch"><h1>A cara do Python, a velocidade do C, a gestão de memória do Rust.</h1><p class="actions"><a class="btn primary" href="#install">Instalar</a><a class="btn" href="https://github.com/zap-kit/zap">Código no GitHub</a></p><p class="note">Windows x64 hoje; Android, Linux e macOS em seguida. Experimental.</p></div><figure class="editor"><figcaption><span class="dots"><i></i><i></i><i></i></span>team.zap</figcaption><pre><code><span class="k">type</span> <span class="t">Pokemon</span>:
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zap</title>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+
+<meta name="description" content="A cara do Python, a velocidade do C, a gestão de memória do Rust.">
+<link rel="alternate" hreflang="en" href="../en/index.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=IBM+Plex+Sans:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<nav class="top"><div class="inner">
+<a class="mark" href="./"><img class="logo" src="../logo.svg" alt="">Zap</a>
+<span class="navlinks">
+<a href="https://github.com/zap-kit/zap">GitHub</a>
+<a href="../en/index.html" hreflang="en" lang="en">English</a>
+</span>
+</div></nav>
+<div class="wrap">
+<header class="hero">
+<div class="pitch">
+<h1>A cara do Python, a velocidade do C, a gestão de memória do Rust.</h1>
+<p class="actions">
+<a class="btn primary" href="#install">Instalar</a>
+<a class="btn" href="https://github.com/zap-kit/zap">Código no GitHub</a>
+</p>
+<p class="note">Windows x64 hoje; Android, Linux e macOS em seguida. Experimental.</p>
+</div>
+<figure class="editor">
+<figcaption><span class="dots"><i></i><i></i><i></i></span>team.zap</figcaption>
+<pre><code><span class="k">type</span> <span class="t">Pokemon</span>:
 	name <span class="t">str</span>
 	kind <span class="t">str</span>
 	level <span class="t">i64</span>
@@ -19,7 +53,295 @@ team.push((<span class="s">"Articuno"</span>, <span class="s">"ice"</span>, <spa
 
 <span class="c"># the total power, on all the processor's cores at once</span>
 power = team.parallel().map(.level * .level).sum()
-print(<span class="s">"{kinds.len} kinds, power {power}"</span>)<span aria-hidden="true" class="cursor"></span></code></pre></figure></header><section aria-label="Números" class="stats"><div class="stat"><b data-count="0.68x">0.68x</b><span>do tempo do C, média geométrica de 17 programas</span></div><div class="stat"><b data-count="0.76x">0.76x</b><span>do tempo do Rust, nos mesmos programas</span></div><div class="stat"><b data-count="0.49x">0.49x</b><span>dos tokens do C, nos mesmos programas</span></div><div class="stat"><b data-count="5.6 s">5.6 s</b><span>para o compilador compilar a si mesmo</span></div></section><section class="reveal"><h2>Por que Zap</h2><ul class="points"><li><strong>Feito para agentes.</strong> Menos tokens por programa e erros que dizem como corrigir.</li><li><strong>Do kernel ao script.</strong> Uma só linguagem para todas as camadas, sem precisar trocar de ferramenta.</li><li><strong>Seguro sem cerimônia.</strong> A memória é verificada em tempo de compilação sem que você escreva nada para isso: sem lifetimes, sem anotações, sem coletor de lixo.</li><li><strong>Feito para dados.</strong> Laços paralelos, vetores e tensores são a própria linguagem, não C escondido debaixo de um invólucro.</li><li><strong>CPU e GPU do mesmo jeito.</strong> Um shader é Zap, com os mesmos tipos e regras; o <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> é construído sobre isso.</li><li><strong>Uma ferramenta, sem configuração.</strong> O <code>zap</code> compila, executa, testa, formata e documenta; o compilador gera os executáveis sozinho, sem compilador C nem linker.</li></ul></section><section class="reveal" id="install"><h2>Instalar</h2><p>Cole isto no seu agente de código (Claude Code, Codex, Cursor):</p><div class="copybox"><pre id="prompt">Instale o Zap de https://github.com/zap-kit/zap neste Windows: clone, rode `bootstrap/zap-seed.exe run build.zap`, ponha a pasta build no meu PATH e rode `zap test spec`.</pre><button data-copy="prompt" data-done="Copiado" type="button">Copiar</button></div></section><section class="reveal" id="discover"><h2>Descubra</h2><p>Cole isto no seu agente de código para saber o que há de interessante na linguagem:</p><div class="copybox"><pre id="discoverPrompt">Estude a linguagem Zap em https://github.com/zap-kit/zap (o README e a pasta spec/) e me mostre, com exemplos curtos, o que ela faz diferente de C, Rust e Python.</pre><button data-copy="discoverPrompt" data-done="Copiado" type="button">Copiar</button></div></section><section class="reveal"><h2>Números</h2><p class="intro">O Zap contra o melhor entre C, C++ e Rust em cada programa: abaixo de 1,00x, o Zap ganha.</p><h3>Tempo</h3><div class="linechart"><ul aria-label="Tempo" class="chart" style="--tie: 83.3%"><li aria-hidden="true" class="row axis"><span></span><div class="track"><span class="tie">1,00x = empate</span></div><span></span></li><li class="row" data-about="fasta: Escreve milhões de letras de DNA aleatórias."><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 44.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.53x<span class="tip-box" role="tooltip">C 0.39x · Rust 0.53x</span></span></span></li><li class="row" data-about="spectralnorm: Multiplica uma grade enorme de números, de novo e de novo."><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value"><span class="tip" tabindex="0">0.68x<span class="tip-box" role="tooltip">C 0.67x · Rust 0.68x</span></span></span></li><li class="row" data-about="matmul: Multiplica duas tabelas grandes de números."><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 60.0%"></div></div><span class="value"><span class="tip" tabindex="0">0.72x<span class="tip-box" role="tooltip">C 0.72x · Rust 0.57x</span></span></span></li><li class="row" data-about="binarytrees: Monta e joga fora milhões de pequenas árvores de dados."><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 60.8%"></div></div><span class="value"><span class="tip" tabindex="0">0.73x<span class="tip-box" role="tooltip">C 0.08x · C++ 0.73x · Rust 0.63x</span></span></span></li><li class="row" data-about="knucleotide: Conta os pedacinhos que se repetem num texto longo de DNA."><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 67.5%"></div></div><span class="value"><span class="tip" tabindex="0">0.81x<span class="tip-box" role="tooltip">C 0.66x · C++ 0.73x · Rust 0.81x</span></span></span></li><li class="row" data-about="strsort: Põe milhões de palavras em ordem alfabética."><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.83x<span class="tip-box" role="tooltip">C 0.83x · C++ 0.74x · Rust 0.80x</span></span></span></li><li class="row" data-about="exprtree: Lê contas de matemática e calcula o resultado."><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 71.7%"></div></div><span class="value"><span class="tip" tabindex="0">0.86x<span class="tip-box" role="tooltip">C 0.71x · C++ 0.86x · Rust 0.81x</span></span></span></li><li class="row" data-about="base64: Transforma dados em texto e volta, como nos anexos de e-mail."><span class="name">base64</span><div class="track"><div class="bar" style="--w: 72.5%"></div></div><span class="value"><span class="tip" tabindex="0">0.87x<span class="tip-box" role="tooltip">C 0.81x · Rust 0.87x</span></span></span></li><li class="row" data-about="jsonrecords: Salva uma lista de registros como texto JSON e lê de volta."><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 75.8%"></div></div><span class="value"><span class="tip" tabindex="0">0.91x<span class="tip-box" role="tooltip">C 0.91x · Rust 0.78x</span></span></span></li><li class="row" data-about="nbody: Move os planetas em volta do Sol, passo a passo."><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value"><span class="tip" tabindex="0">0.94x<span class="tip-box" role="tooltip">C 0.94x · Rust 0.84x</span></span></span></li><li class="row" data-about="wordfreq: Conta quantas vezes cada palavra aparece num texto grande."><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value"><span class="tip" tabindex="0">0.94x<span class="tip-box" role="tooltip">C 0.94x · Rust 0.75x</span></span></span></li><li class="row" data-about="raytrace: Desenha uma cena 3D de bolas com luz e sombra."><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value"><span class="tip" tabindex="0">0.94x<span class="tip-box" role="tooltip">C 0.94x · C++ 0.92x · Rust 0.64x</span></span></span></li><li class="row" data-about="nsieve: Acha todos os números primos até alguns milhões."><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.95x<span class="tip-box" role="tooltip">C 0.95x · Rust 0.80x</span></span></span></li><li class="row" data-about="dijkstra: Acha o caminho mais curto num mapa grande, como um GPS."><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 80.0%"></div></div><span class="value"><span class="tip" tabindex="0">0.96x<span class="tip-box" role="tooltip">C 0.72x · C++ 0.65x · Rust 0.96x</span></span></span></li><li class="row" data-about="mandelbrot: Desenha um fractal famoso, pixel por pixel."><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value"><span class="tip" tabindex="0">0.97x<span class="tip-box" role="tooltip">C 0.62x · C++ 0.97x · Rust 0.97x</span></span></span></li><li class="row" data-about="revcomp: Lê o DNA de trás para frente e troca cada letra pelo seu par."><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value"><span class="tip" tabindex="0">0.97x<span class="tip-box" role="tooltip">C 0.97x · Rust 0.67x</span></span></span></li><li class="row" data-about="fannkuchredux: Embaralha um baralho de todos os jeitos possíveis e vira as cartas."><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value"><span class="tip" tabindex="0">1.00x<span class="tip-box" role="tooltip">C 0.93x · Rust 1.00x</span></span></span></li></ul><p aria-live="polite" class="about">Toque ou passe o mouse no nome de um programa para ver o que ele faz.</p></div><h3>Memória</h3><div class="linechart"><ul aria-label="Memória" class="chart" style="--tie: 83.3%"><li aria-hidden="true" class="row axis"><span></span><div class="track"><span class="tie">1,00x = empate</span></div><span></span></li><li class="row" data-about="knucleotide: Conta os pedacinhos que se repetem num texto longo de DNA."><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 50.0%"></div></div><span class="value"><span class="tip" tabindex="0">0.60x<span class="tip-box" role="tooltip">C 0.60x · C++ 0.53x · Rust 0.45x</span></span></span></li><li class="row" data-about="jsonrecords: Salva uma lista de registros como texto JSON e lê de volta."><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value"><span class="tip" tabindex="0">0.68x<span class="tip-box" role="tooltip">C 0.68x · Rust 0.54x</span></span></span></li><li class="row" data-about="binarytrees: Monta e joga fora milhões de pequenas árvores de dados."><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 57.5%"></div></div><span class="value"><span class="tip" tabindex="0">0.69x<span class="tip-box" role="tooltip">C 0.69x · C++ 0.54x · Rust 0.66x</span></span></span></li><li class="row" data-about="exprtree: Lê contas de matemática e calcula o resultado."><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 59.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.71x<span class="tip-box" role="tooltip">C 0.68x · C++ 0.71x · Rust 0.67x</span></span></span></li><li class="row" data-about="spectralnorm: Multiplica uma grade enorme de números, de novo e de novo."><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 64.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.77x<span class="tip-box" role="tooltip">C 0.77x · Rust 0.67x</span></span></span></li><li class="row" data-about="nbody: Move os planetas em volta do Sol, passo a passo."><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 65.0%"></div></div><span class="value"><span class="tip" tabindex="0">0.78x<span class="tip-box" role="tooltip">C 0.78x · Rust 0.68x</span></span></span></li><li class="row" data-about="fannkuchredux: Embaralha um baralho de todos os jeitos possíveis e vira as cartas."><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.83x<span class="tip-box" role="tooltip">C 0.83x · Rust 0.68x</span></span></span></li><li class="row" data-about="fasta: Escreve milhões de letras de DNA aleatórias."><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.95x<span class="tip-box" role="tooltip">C 0.95x · Rust 0.77x</span></span></span></li><li class="row" data-about="wordfreq: Conta quantas vezes cada palavra aparece num texto grande."><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value"><span class="tip" tabindex="0">0.95x<span class="tip-box" role="tooltip">C 0.95x · Rust 0.74x</span></span></span></li><li class="row" data-about="nsieve: Acha todos os números primos até alguns milhões."><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value"><span class="tip" tabindex="0">0.97x<span class="tip-box" role="tooltip">C 0.97x · Rust 0.93x</span></span></span></li><li class="row" data-about="raytrace: Desenha uma cena 3D de bolas com luz e sombra."><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 81.7%"></div></div><span class="value"><span class="tip" tabindex="0">0.98x<span class="tip-box" role="tooltip">C 0.98x · C++ 0.97x · Rust 0.87x</span></span></span></li><li class="row" data-about="mandelbrot: Desenha um fractal famoso, pixel por pixel."><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value"><span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · C++ 0.97x · Rust 0.98x</span></span></span></li><li class="row" data-about="revcomp: Lê o DNA de trás para frente e troca cada letra pelo seu par."><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value"><span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · Rust 0.98x</span></span></span></li><li class="row" data-about="matmul: Multiplica duas tabelas grandes de números."><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value"><span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · Rust 0.97x</span></span></span></li><li class="row" data-about="dijkstra: Acha o caminho mais curto num mapa grande, como um GPS."><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value"><span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · C++ 0.99x · Rust 0.99x</span></span></span></li><li class="row" data-about="base64: Transforma dados em texto e volta, como nos anexos de e-mail."><span class="name">base64</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value"><span class="tip" tabindex="0">1.00x<span class="tip-box" role="tooltip">C 1.00x · Rust 1.00x</span></span></span></li><li class="row" data-about="strsort: Põe milhões de palavras em ordem alfabética."><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value"><span class="tip" tabindex="0">1.00x<span class="tip-box" role="tooltip">C 1.00x · C++ 0.43x · Rust 0.50x</span></span></span></li></ul><p aria-live="polite" class="about">Toque ou passe o mouse no nome de um programa para ver o que ele faz.</p></div><p class="intro">Quanto código cada linguagem precisa para os mesmos programas, contado em palavras e símbolos: o Zap é 1,00x.</p><h3>Tamanho do código</h3><div class="linechart"><ul aria-label="Tamanho do código" class="chart" style="--tie: 46.5%"><li class="row" data-about=""><span class="name">Zap</span><div class="track"><div class="bar" style="--w: 46.5%"></div></div><span class="value">1.00x</span></li><li class="row" data-about=""><span class="name">C</span><div class="track"><div class="bar muted" style="--w: 95.2%"></div></div><span class="value">2.05x</span></li><li class="row" data-about=""><span class="name">C++</span><div class="track"><div class="bar muted" style="--w: 85.5%"></div></div><span class="value">1.84x</span></li><li class="row" data-about=""><span class="name">Rust</span><div class="track"><div class="bar muted" style="--w: 91.1%"></div></div><span class="value">1.96x</span></li><li class="row" data-about=""><span class="name">Python</span><div class="track"><div class="bar muted" style="--w: 39.0%"></div></div><span class="value">0.84x</span></li></ul><p aria-live="polite" class="about"></p></div></section><section class="reveal"><h2>Feito com Zap</h2><ul class="built"><li><a href="https://github.com/zap-kit/zap-engine">Engine</a><span>17,694</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/mario">Mario 64</a><span>8,578</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/ragnarok">Ragnarok</a><span>4,841</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/minecraft">Minecraft</a><span>2,444</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/firered">FireRed</a><span>3,578</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/excel1">Excel 1.00</a><span>8,971</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/skate3">Skate 3</a><span>3,367</span></li></ul></section><footer><p><strong>Experimental.</strong> Não é para produção: a linguagem muda com frequência, então construa e quebre rápido. Copie, mude, faça dialetos dela.</p><p>Licença: MIT. · Código-fonte: <a href="https://github.com/zap-kit/zap">zap</a> · <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> · <a href="https://github.com/zap-kit/zap-projects">zap-projects</a></p></footer></div><script>(function () {
+print(<span class="s">"{kinds.len} kinds, power {power}"</span>)<span class="cursor" aria-hidden="true"></span></code></pre>
+</figure>
+</header>
+<section class="stats" aria-label="Números">
+<div class="stat"><b data-count="0.68x">0.68x</b><span>do tempo do C, média geométrica de 17 programas</span></div>
+<div class="stat"><b data-count="0.76x">0.76x</b><span>do tempo do Rust, nos mesmos programas</span></div>
+<div class="stat"><b data-count="0.49x">0.49x</b><span>dos tokens do C, nos mesmos programas</span></div>
+<div class="stat"><b data-count="5.6 s">5.6 s</b><span>para o compilador compilar a si mesmo</span></div>
+</section>
+<section class="reveal">
+<h2>Por que Zap</h2>
+<ul class="points">
+<li><strong>Feito para agentes.</strong> Menos tokens por programa e erros que dizem como corrigir.</li>
+<li><strong>Do kernel ao script.</strong> Uma só linguagem para todas as camadas, sem precisar trocar de ferramenta.</li>
+<li><strong>Seguro sem cerimônia.</strong> A memória é verificada em tempo de compilação sem que você escreva nada para isso: sem lifetimes, sem anotações, sem coletor de lixo.</li>
+<li><strong>Feito para dados.</strong> Laços paralelos, vetores e tensores são a própria linguagem, não C escondido debaixo de um invólucro.</li>
+<li><strong>CPU e GPU do mesmo jeito.</strong> Um shader é Zap, com os mesmos tipos e regras; o <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> é construído sobre isso.</li>
+<li><strong>Uma ferramenta, sem configuração.</strong> O <code>zap</code> compila, executa, testa, formata e documenta; o compilador gera os executáveis sozinho, sem compilador C nem linker.</li>
+</ul>
+</section>
+<section class="reveal" id="install">
+<h2>Instalar</h2>
+<p>Cole isto no seu agente de código (Claude Code, Codex, Cursor):</p>
+<div class="copybox">
+<pre id="prompt">Instale o Zap de https://github.com/zap-kit/zap neste Windows: clone, rode `bootstrap/zap-seed.exe run build.zap`, ponha a pasta build no meu PATH e rode `zap test spec`.</pre>
+<button type="button" data-copy="prompt" data-done="Copiado">Copiar</button>
+</div>
+</section>
+
+<section class="reveal" id="discover">
+<h2>Descubra</h2>
+<p>Cole isto no seu agente de código para saber o que há de interessante na linguagem:</p>
+<div class="copybox">
+<pre id="discoverPrompt">Estude a linguagem Zap em https://github.com/zap-kit/zap (o README e a pasta spec/) e me mostre, com exemplos curtos, o que ela faz diferente de C, Rust e Python.</pre>
+<button type="button" data-copy="discoverPrompt" data-done="Copiado">Copiar</button>
+</div>
+</section>
+
+<section class="reveal">
+<h2>Números</h2>
+<p class="intro">Oito problemas vêm do <a href="https://benchmarksgame-team.pages.debian.net/benchmarksgame/">The Benchmarks Game</a>, contra os programas mais rápidos publicados lá em C, C++, Rust e Python; outros nove são nossos, no mesmo estilo. Um único implementador, um agente de IA, otimizou depois os programas de todas as linguagens dentro das mesmas regras, para que os números comparem as linguagens, não quem escreveu cada programa.</p>
+<p class="intro">O Zap contra o melhor entre C, C++ e Rust em cada programa: abaixo de 1,00x, o Zap ganha.</p>
+<h3>Tempo</h3>
+<div class="linechart">
+<ul class="chart" style="--tie: 83.3%" aria-label="Tempo">
+<li class="row axis" aria-hidden="true"><span></span><div class="track"><span class="tie">1,00x = empate</span></div><span></span></li>
+<li class="row" data-about="fasta: Escreve milhões de letras de DNA aleatórias."><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 44.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.53x<span class="tip-box" role="tooltip">C 0.39x · Rust 0.53x</span></span>
+
+</span></li>
+
+<li class="row" data-about="spectralnorm: Multiplica uma grade enorme de números, de novo e de novo."><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.68x<span class="tip-box" role="tooltip">C 0.67x · Rust 0.68x</span></span>
+
+</span></li>
+
+<li class="row" data-about="matmul: Multiplica duas tabelas grandes de números."><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 60.0%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.72x<span class="tip-box" role="tooltip">C 0.72x · Rust 0.57x</span></span>
+
+</span></li>
+
+<li class="row" data-about="binarytrees: Monta e joga fora milhões de pequenas árvores de dados."><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 60.8%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.73x<span class="tip-box" role="tooltip">C 0.08x · C++ 0.73x · Rust 0.63x</span></span>
+
+</span></li>
+
+<li class="row" data-about="knucleotide: Conta os pedacinhos que se repetem num texto longo de DNA."><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 67.5%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.81x<span class="tip-box" role="tooltip">C 0.66x · C++ 0.73x · Rust 0.81x</span></span>
+
+</span></li>
+
+<li class="row" data-about="strsort: Põe milhões de palavras em ordem alfabética."><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.83x<span class="tip-box" role="tooltip">C 0.83x · C++ 0.74x · Rust 0.80x</span></span>
+
+</span></li>
+
+<li class="row" data-about="exprtree: Lê contas de matemática e calcula o resultado."><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 71.7%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.86x<span class="tip-box" role="tooltip">C 0.71x · C++ 0.86x · Rust 0.81x</span></span>
+
+</span></li>
+
+<li class="row" data-about="base64: Transforma dados em texto e volta, como nos anexos de e-mail."><span class="name">base64</span><div class="track"><div class="bar" style="--w: 72.5%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.87x<span class="tip-box" role="tooltip">C 0.81x · Rust 0.87x</span></span>
+
+</span></li>
+
+<li class="row" data-about="jsonrecords: Salva uma lista de registros como texto JSON e lê de volta."><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 75.8%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.91x<span class="tip-box" role="tooltip">C 0.91x · Rust 0.78x</span></span>
+
+</span></li>
+
+<li class="row" data-about="nbody: Move os planetas em volta do Sol, passo a passo."><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.94x<span class="tip-box" role="tooltip">C 0.94x · Rust 0.84x</span></span>
+
+</span></li>
+
+<li class="row" data-about="wordfreq: Conta quantas vezes cada palavra aparece num texto grande."><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.94x<span class="tip-box" role="tooltip">C 0.94x · Rust 0.75x</span></span>
+
+</span></li>
+
+<li class="row" data-about="raytrace: Desenha uma cena 3D de bolas com luz e sombra."><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.94x<span class="tip-box" role="tooltip">C 0.94x · C++ 0.92x · Rust 0.64x</span></span>
+
+</span></li>
+
+<li class="row" data-about="nsieve: Acha todos os números primos até alguns milhões."><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.95x<span class="tip-box" role="tooltip">C 0.95x · Rust 0.80x</span></span>
+
+</span></li>
+
+<li class="row" data-about="dijkstra: Acha o caminho mais curto num mapa grande, como um GPS."><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 80.0%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.96x<span class="tip-box" role="tooltip">C 0.72x · C++ 0.65x · Rust 0.96x</span></span>
+
+</span></li>
+
+<li class="row" data-about="mandelbrot: Desenha um fractal famoso, pixel por pixel."><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.97x<span class="tip-box" role="tooltip">C 0.62x · C++ 0.97x · Rust 0.97x</span></span>
+
+</span></li>
+
+<li class="row" data-about="revcomp: Lê o DNA de trás para frente e troca cada letra pelo seu par."><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.97x<span class="tip-box" role="tooltip">C 0.97x · Rust 0.67x</span></span>
+
+</span></li>
+
+<li class="row" data-about="fannkuchredux: Embaralha um baralho de todos os jeitos possíveis e vira as cartas."><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">
+<span class="tip" tabindex="0">1.00x<span class="tip-box" role="tooltip">C 0.93x · Rust 1.00x</span></span>
+
+</span></li>
+
+</ul>
+<p class="about" aria-live="polite">Toque ou passe o mouse no nome de um programa para ver o que ele faz.</p>
+</div>
+
+<h3>Memória</h3>
+<div class="linechart">
+<ul class="chart" style="--tie: 83.3%" aria-label="Memória">
+<li class="row axis" aria-hidden="true"><span></span><div class="track"><span class="tie">1,00x = empate</span></div><span></span></li>
+<li class="row" data-about="knucleotide: Conta os pedacinhos que se repetem num texto longo de DNA."><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 50.0%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.60x<span class="tip-box" role="tooltip">C 0.60x · C++ 0.53x · Rust 0.45x</span></span>
+
+</span></li>
+
+<li class="row" data-about="jsonrecords: Salva uma lista de registros como texto JSON e lê de volta."><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.68x<span class="tip-box" role="tooltip">C 0.68x · Rust 0.54x</span></span>
+
+</span></li>
+
+<li class="row" data-about="binarytrees: Monta e joga fora milhões de pequenas árvores de dados."><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 57.5%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.69x<span class="tip-box" role="tooltip">C 0.69x · C++ 0.54x · Rust 0.66x</span></span>
+
+</span></li>
+
+<li class="row" data-about="exprtree: Lê contas de matemática e calcula o resultado."><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 59.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.71x<span class="tip-box" role="tooltip">C 0.68x · C++ 0.71x · Rust 0.67x</span></span>
+
+</span></li>
+
+<li class="row" data-about="spectralnorm: Multiplica uma grade enorme de números, de novo e de novo."><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 64.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.77x<span class="tip-box" role="tooltip">C 0.77x · Rust 0.67x</span></span>
+
+</span></li>
+
+<li class="row" data-about="nbody: Move os planetas em volta do Sol, passo a passo."><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 65.0%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.78x<span class="tip-box" role="tooltip">C 0.78x · Rust 0.68x</span></span>
+
+</span></li>
+
+<li class="row" data-about="fannkuchredux: Embaralha um baralho de todos os jeitos possíveis e vira as cartas."><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.83x<span class="tip-box" role="tooltip">C 0.83x · Rust 0.68x</span></span>
+
+</span></li>
+
+<li class="row" data-about="fasta: Escreve milhões de letras de DNA aleatórias."><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.95x<span class="tip-box" role="tooltip">C 0.95x · Rust 0.77x</span></span>
+
+</span></li>
+
+<li class="row" data-about="wordfreq: Conta quantas vezes cada palavra aparece num texto grande."><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.95x<span class="tip-box" role="tooltip">C 0.95x · Rust 0.74x</span></span>
+
+</span></li>
+
+<li class="row" data-about="nsieve: Acha todos os números primos até alguns milhões."><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.97x<span class="tip-box" role="tooltip">C 0.97x · Rust 0.93x</span></span>
+
+</span></li>
+
+<li class="row" data-about="raytrace: Desenha uma cena 3D de bolas com luz e sombra."><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 81.7%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.98x<span class="tip-box" role="tooltip">C 0.98x · C++ 0.97x · Rust 0.87x</span></span>
+
+</span></li>
+
+<li class="row" data-about="mandelbrot: Desenha um fractal famoso, pixel por pixel."><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · C++ 0.97x · Rust 0.98x</span></span>
+
+</span></li>
+
+<li class="row" data-about="revcomp: Lê o DNA de trás para frente e troca cada letra pelo seu par."><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · Rust 0.98x</span></span>
+
+</span></li>
+
+<li class="row" data-about="matmul: Multiplica duas tabelas grandes de números."><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · Rust 0.97x</span></span>
+
+</span></li>
+
+<li class="row" data-about="dijkstra: Acha o caminho mais curto num mapa grande, como um GPS."><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">
+<span class="tip" tabindex="0">0.99x<span class="tip-box" role="tooltip">C 0.99x · C++ 0.99x · Rust 0.99x</span></span>
+
+</span></li>
+
+<li class="row" data-about="base64: Transforma dados em texto e volta, como nos anexos de e-mail."><span class="name">base64</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">
+<span class="tip" tabindex="0">1.00x<span class="tip-box" role="tooltip">C 1.00x · Rust 1.00x</span></span>
+
+</span></li>
+
+<li class="row" data-about="strsort: Põe milhões de palavras em ordem alfabética."><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">
+<span class="tip" tabindex="0">1.00x<span class="tip-box" role="tooltip">C 1.00x · C++ 0.43x · Rust 0.50x</span></span>
+
+</span></li>
+
+</ul>
+<p class="about" aria-live="polite">Toque ou passe o mouse no nome de um programa para ver o que ele faz.</p>
+</div>
+
+<p class="intro">Quanto código cada linguagem precisa para os mesmos programas, contado em palavras e símbolos: o Zap é 1,00x.</p>
+<h3>Tamanho do código</h3>
+<div class="linechart">
+<ul class="chart" style="--tie: 46.5%" aria-label="Tamanho do código">
+<li class="row" data-about=""><span class="name">Zap</span><div class="track"><div class="bar" style="--w: 46.5%"></div></div><span class="value">
+1.00x
+</span></li>
+
+<li class="row" data-about=""><span class="name">C</span><div class="track"><div class="bar muted" style="--w: 95.2%"></div></div><span class="value">
+2.05x
+</span></li>
+
+<li class="row" data-about=""><span class="name">C++</span><div class="track"><div class="bar muted" style="--w: 85.5%"></div></div><span class="value">
+1.84x
+</span></li>
+
+<li class="row" data-about=""><span class="name">Rust</span><div class="track"><div class="bar muted" style="--w: 91.1%"></div></div><span class="value">
+1.96x
+</span></li>
+
+<li class="row" data-about=""><span class="name">Python</span><div class="track"><div class="bar muted" style="--w: 39.0%"></div></div><span class="value">
+0.84x
+</span></li>
+
+</ul>
+<p class="about" aria-live="polite"></p>
+</div>
+
+</section>
+<section class="reveal">
+<h2>Feito com Zap</h2>
+<ul class="built">
+<li>
+<a href="https://github.com/zap-kit/zap-engine">Engine</a>
+<span>17,694</span></li>
+<li>
+<a href="https://github.com/zap-kit/zap-projects/tree/main/mario">Mario 64</a>
+<span>8,578</span></li>
+<li>
+<a href="https://github.com/zap-kit/zap-projects/tree/main/ragnarok">Ragnarok</a>
+<span>4,841</span></li>
+<li>
+<a href="https://github.com/zap-kit/zap-projects/tree/main/minecraft">Minecraft</a>
+<span>2,444</span></li>
+<li>
+<a href="https://github.com/zap-kit/zap-projects/tree/main/firered">FireRed</a>
+<span>3,578</span></li>
+<li>
+<a href="https://github.com/zap-kit/zap-projects/tree/main/excel1">Excel 1.00</a>
+<span>8,971</span></li>
+<li>
+<a href="https://github.com/zap-kit/zap-projects/tree/main/skate3">Skate 3</a>
+<span>3,367</span></li>
+</ul>
+</section>
+<footer>
+<p><strong>Experimental.</strong> Não é para produção: a linguagem muda com frequência, então construa e quebre rápido. Copie, mude, faça dialetos dela.</p>
+<p>Licença: MIT. · Código-fonte: <a href="https://github.com/zap-kit/zap">zap</a> · <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> · <a href="https://github.com/zap-kit/zap-projects">zap-projects</a></p>
+</footer>
+</div>
+<script>(function () {
 var bar = document.querySelector(".top");
 function scrolled() { bar.classList.toggle("scrolled", window.scrollY > 4); }
 addEventListener("scroll", scrolled, { passive: true });
@@ -66,4 +388,6 @@ document.querySelectorAll("button[data-copy]").forEach(function (b) {
     });
   });
 });
-})();</script></body></html>
+})();</script>
+</body>
+</html>
