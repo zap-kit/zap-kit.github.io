@@ -223,3 +223,17 @@ footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line
 }
 
 .about { color: var(--muted); font-size: 0.9rem; min-height: 2.8em; margin: 0.25rem 0 1.5rem; }
+
+/* Tooltips of the page's own (webgen.tooltip): a dark box above the trigger, shown while its row is
+   hovered or the trigger focused. */
+.tip { position: relative; outline: none; cursor: help; }
+.tip-box {
+	position: absolute; right: 0; bottom: calc(100% + 8px); z-index: 20;
+	padding: 0.4rem 0.65rem; border-radius: 8px; white-space: nowrap;
+	background: var(--fg); color: var(--bg); font: 600 0.78rem var(--body);
+	box-shadow: 0 8px 24px -10px rgba(0, 0, 0, 0.5);
+	opacity: 0; transform: translateY(4px); pointer-events: none;
+	transition: opacity 0.15s, transform 0.15s;
+}
+.tip-box::after { content: ""; position: absolute; right: 0.9rem; top: 100%; border: 5px solid transparent; border-top-color: var(--fg); }
+.row:hover .tip-box, .tip:focus .tip-box { opacity: 1; transform: none; }
