@@ -109,6 +109,7 @@ h1 {
 .t { color: #7cc7ff; }
 .s { color: #a6e07a; }
 .n { color: #ff9e64; }
+.c { color: #7d8396; font-style: italic; }
 
 .stats {
 	display: grid;
