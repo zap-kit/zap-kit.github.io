@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zap</title>
+<meta name="description" content="A cara do Python, a velocidade do C, a gestão de memória do Rust.">
+<link rel="alternate" hreflang="en" href="../en/index.html">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+<nav><a href="../en/index.html" hreflang="en" lang="en">English</a></nav>
+<h1>Zap</h1>
+<p class="tagline">A cara do Python, a velocidade do C, a gestão de memória do Rust.</p>
+</header>
+<main>
+<ul class="points">
+
+<li><strong>Do kernel ao script.</strong> Uma só linguagem para todas as camadas, sem precisar trocar de ferramenta.</li>
+
+<li><strong>CPU e GPU do mesmo jeito.</strong> Um shader é Zap, com os mesmos tipos e regras; o <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> é construído sobre isso.</li>
+
+<li><strong>Seguro sem cerimônia.</strong> A memória é verificada em tempo de compilação sem que você escreva nada para isso: sem lifetimes, sem anotações, sem coletor de lixo.</li>
+
+<li><strong>Feito para agentes.</strong> Menos tokens por programa e erros que dizem como corrigir.</li>
+
+<li><strong>Uma ferramenta, sem configuração.</strong> O <code>zap</code> compila, executa, testa, formata e documenta; o compilador gera os executáveis sozinho, sem compilador C nem linker.</li>
+
+</ul>
+<pre><code>type Pokemon:
+	name str
+	level i64
+
+fn train(mut p Pokemon, by i64):
+	p.level += by
+
+mut team Pokemon[] = [(&quot;Zapdos&quot;, 50), (&quot;Articuno&quot;, 50)]
+team[0].train(3)
+team.push((&quot;Moltres&quot;, 50))
+for p in team:
+	print(&quot;{p.name} {p.level}&quot;)</code></pre>
+<h2>Números</h2>
+
+<p>Tokens por programa, com o mesmo tokenizador para todas as linguagens (comentários e espaços não contam; o total e a razão de cada linguagem contam só os problemas que ela tem):</p>
+<div class="scroll">
+<table>
+<thead><tr><th>tokens</th><th>Zap</th><th>C</th><th>C++</th><th>Rust</th><th>Python</th></tr></thead>
+<tbody>
+
+<tr><td>nbody</td><td>795</td><td>1,546</td><td>-</td><td>1,768</td><td>-</td></tr>
+
+<tr><td>spectralnorm</td><td>372</td><td>1,490</td><td>-</td><td>1,012</td><td>-</td></tr>
+
+<tr><td>fannkuchredux</td><td>677</td><td>1,138</td><td>-</td><td>954</td><td>-</td></tr>
+
+<tr><td>binarytrees</td><td>332</td><td>656</td><td>578</td><td>502</td><td>-</td></tr>
+
+<tr><td>fasta</td><td>724</td><td>1,136</td><td>-</td><td>1,918</td><td>-</td></tr>
+
+<tr><td>mandelbrot</td><td>502</td><td>1,184</td><td>2,919</td><td>1,311</td><td>-</td></tr>
+
+<tr><td>knucleotide</td><td>1,255</td><td>1,171</td><td>1,308</td><td>1,389</td><td>-</td></tr>
+
+<tr><td>revcomp</td><td>1,068</td><td>1,073</td><td>-</td><td>2,036</td><td>-</td></tr>
+
+<tr><td>nsieve</td><td>130</td><td>288</td><td>-</td><td>215</td><td>146</td></tr>
+
+<tr><td>matmul</td><td>236</td><td>407</td><td>-</td><td>339</td><td>229</td></tr>
+
+<tr><td>base64</td><td>651</td><td>951</td><td>-</td><td>830</td><td>-</td></tr>
+
+<tr><td>wordfreq</td><td>211</td><td>992</td><td>-</td><td>541</td><td>-</td></tr>
+
+<tr><td>jsonrecords</td><td>336</td><td>3,447</td><td>-</td><td>2,348</td><td>-</td></tr>
+
+<tr><td>dijkstra</td><td>353</td><td>827</td><td>508</td><td>490</td><td>-</td></tr>
+
+<tr><td>raytrace</td><td>553</td><td>999</td><td>875</td><td>1,013</td><td>-</td></tr>
+
+<tr><td>exprtree</td><td>698</td><td>1,186</td><td>902</td><td>1,083</td><td>-</td></tr>
+
+<tr><td>strsort</td><td>339</td><td>422</td><td>332</td><td>304</td><td>220</td></tr>
+
+<tr><td>total</td><td>9,232</td><td>18,913</td><td>7,422</td><td>18,053</td><td>595</td></tr>
+
+<tr><td>contra o Zap</td><td>1.00x</td><td>2.05x</td><td>1.84x</td><td>1.96x</td><td>0.84x</td></tr>
+
+</tbody>
+</table>
+</div>
+
+
+<p>Tempo e memória dos programas em Zap contra os mesmos programas em C, C++ e Rust (1,00x é empate):</p>
+<div class="scroll">
+<table>
+<thead><tr><th>Zap contra</th><th>ms</th><th>MB</th><th>tempo C</th><th>C++</th><th>Rust</th><th>memória C</th><th>C++</th><th>Rust</th></tr></thead>
+<tbody>
+
+<tr><td>nbody</td><td>1248</td><td>3.3</td><td>0.94x</td><td>-</td><td>0.84x</td><td>0.78x</td><td>-</td><td>0.68x</td></tr>
+
+<tr><td>spectralnorm</td><td>163</td><td>3.7</td><td>0.67x</td><td>-</td><td>0.68x</td><td>0.77x</td><td>-</td><td>0.67x</td></tr>
+
+<tr><td>fannkuchredux</td><td>1801</td><td>3.6</td><td>0.93x</td><td>-</td><td>1.00x</td><td>0.83x</td><td>-</td><td>0.68x</td></tr>
+
+<tr><td>binarytrees</td><td>682</td><td>180.3</td><td>0.08x</td><td>0.73x</td><td>0.63x</td><td>0.69x</td><td>0.54x</td><td>0.66x</td></tr>
+
+<tr><td>fasta</td><td>358</td><td>4.0</td><td>0.39x</td><td>-</td><td>0.53x</td><td>0.95x</td><td>-</td><td>0.77x</td></tr>
+
+<tr><td>mandelbrot</td><td>475</td><td>34.9</td><td>0.62x</td><td>0.97x</td><td>0.97x</td><td>0.99x</td><td>0.97x</td><td>0.98x</td></tr>
+
+<tr><td>knucleotide</td><td>1793</td><td>78.6</td><td>0.66x</td><td>0.73x</td><td>0.81x</td><td>0.60x</td><td>0.53x</td><td>0.45x</td></tr>
+
+<tr><td>revcomp</td><td>225</td><td>130.9</td><td>0.97x</td><td>-</td><td>0.67x</td><td>0.99x</td><td>-</td><td>0.98x</td></tr>
+
+<tr><td>nsieve</td><td>489</td><td>13.1</td><td>0.95x</td><td>-</td><td>0.80x</td><td>0.97x</td><td>-</td><td>0.93x</td></tr>
+
+<tr><td>matmul</td><td>328</td><td>36.2</td><td>0.72x</td><td>-</td><td>0.57x</td><td>0.99x</td><td>-</td><td>0.97x</td></tr>
+
+<tr><td>base64</td><td>266</td><td>321.2</td><td>0.81x</td><td>-</td><td>0.87x</td><td>1.00x</td><td>-</td><td>1.00x</td></tr>
+
+<tr><td>wordfreq</td><td>1141</td><td>96.2</td><td>0.94x</td><td>-</td><td>0.75x</td><td>0.95x</td><td>-</td><td>0.74x</td></tr>
+
+<tr><td>jsonrecords</td><td>721</td><td>163.1</td><td>0.91x</td><td>-</td><td>0.78x</td><td>0.68x</td><td>-</td><td>0.54x</td></tr>
+
+<tr><td>dijkstra</td><td>1200</td><td>95.0</td><td>0.72x</td><td>0.65x</td><td>0.96x</td><td>0.99x</td><td>0.99x</td><td>0.99x</td></tr>
+
+<tr><td>raytrace</td><td>1255</td><td>5.0</td><td>0.94x</td><td>0.92x</td><td>0.64x</td><td>0.98x</td><td>0.97x</td><td>0.87x</td></tr>
+
+<tr><td>exprtree</td><td>1019</td><td>46.7</td><td>0.71x</td><td>0.86x</td><td>0.81x</td><td>0.68x</td><td>0.71x</td><td>0.67x</td></tr>
+
+<tr><td>strsort</td><td>1661</td><td>88.0</td><td>0.83x</td><td>0.74x</td><td>0.80x</td><td>1.00x</td><td>0.43x</td><td>0.50x</td></tr>
+
+<tr><td>pior</td><td></td><td></td><td>0.97x</td><td>0.97x</td><td>1.00x</td><td>1.00x</td><td>0.99x</td><td>1.00x</td></tr>
+
+<tr><td>média geométrica</td><td></td><td></td><td>0.68x</td><td>0.79x</td><td>0.76x</td><td>0.86x</td><td>0.70x</td><td>0.75x</td></tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+<div class="scroll">
+<table>
+<thead><tr><th>Feito com Zap</th><th>linhas de Zap</th></tr></thead>
+<tbody>
+
+<tr><td><a href="https://github.com/zap-kit/zap-engine">Engine</a></td><td>17,694</td></tr>
+
+<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/mario">Mario 64</a></td><td>8,578</td></tr>
+
+<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/ragnarok">Ragnarok</a></td><td>4,841</td></tr>
+
+<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/minecraft">Minecraft</a></td><td>2,444</td></tr>
+
+<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/firered">FireRed</a></td><td>3,578</td></tr>
+
+<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/excel1">Excel 1.00</a></td><td>8,971</td></tr>
+
+<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/skate3">Skate 3</a></td><td>3,367</td></tr>
+
+</tbody>
+</table>
+</div>
+
+
+
+<div class="scroll">
+<table>
+<thead><tr><th>O compilador</th><th></th></tr></thead>
+<tbody>
+
+<tr><td>linhas de Zap</td><td>73,060</td></tr>
+
+<tr><td>compila a si mesmo em</td><td>5.6 s</td></tr>
+
+</tbody>
+</table>
+</div>
+
+
+<h2>Compilar</h2>
+<pre><code>bootstrap/zap-seed.exe run build.zap   # -&gt; build/zap.exe
+zap run app.zap                        # compile and run
+zap build app.zap                      # build/app.exe
+zap test                               # every check</code></pre>
+<h2>Experimental</h2>
+<p>Não é para produção: a linguagem muda com frequência, então construa e quebre rápido. Copie, mude, faça dialetos dela.</p>
+<h2>Licença</h2>
+<p>MIT.</p>
+</main>
+<footer>
+<p>Código-fonte:
+<a href="https://github.com/zap-kit/zap">zap</a> ·
+<a href="https://github.com/zap-kit/zap-engine">zap-engine</a> ·
+<a href="https://github.com/zap-kit/zap-projects">zap-projects</a></p>
+</footer>
+</body>
+</html>
