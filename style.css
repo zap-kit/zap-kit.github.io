@@ -18,7 +18,6 @@
 }
 
 @media (prefers-color-scheme: dark) {
-	.linechart { --s1: #3987e5; --s2: #d95926; --s3: #199e70; --s4: #9085e9; }
 	:root {
 		--bg: #0e1016;
 		--fg: #e8e9ef;
@@ -143,25 +142,27 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .intro { color: var(--muted); max-width: 46rem; }
 h3 { font: 800 1.1rem var(--display); margin: 2rem 0 0.75rem; }
 
-/* Line charts: inline SVG that scrolls inside its own box on a phone; the series colors are a
-   categorical set that holds on both surfaces, none of them the accent. */
-.linechart { --s1: #2a78d6; --s2: #eb6834; --s3: #1baf7a; --s4: #6250d6; margin-bottom: 1.5rem; }
-.legend { list-style: none; display: flex; flex-wrap: wrap; gap: 0.25rem 1.25rem; padding: 0; margin: 0 0 0.5rem; font-size: 0.85rem; }
-.legend .swatch { display: inline-block; width: 1.4rem; height: 0; border-top: 2px solid var(--c); margin-right: 0.4rem; vertical-align: middle; }
-.plotbox { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; padding: 0.5rem 0.25rem 0; }
-.plotbox svg { display: block; width: 100%; height: auto; margin: 0 auto; }
-.plotbox text { font: 11px var(--body); fill: var(--fg); }
-.s1 { --c: var(--s1); } .s2 { --c: var(--s2); } .s3 { --c: var(--s3); } .s4 { --c: var(--s4); }
-.grid { stroke: var(--line); stroke-width: 1; }
-.guide { stroke: var(--fg); stroke-width: 1; stroke-dasharray: 5 4; opacity: 0.6; }
-.line { fill: none; stroke: var(--c); stroke-width: 2; stroke-linejoin: round; }
-.dot { fill: var(--c); stroke: var(--bg); stroke-width: 1.5; }
-.dot:hover, .dot:focus { r: 6; outline: none; }
-.endlabel { font-weight: 600; }
-.programs { padding-left: 1.2rem; margin: 0 0 1rem; font-size: 0.95rem; }
-.programs code { font-weight: 600; }
-.reveal.shown .line { animation: draw 1s ease-out both; stroke-dasharray: 2000; }
-@keyframes draw { from { stroke-dashoffset: 2000; } to { stroke-dashoffset: 0; } }
+/* Charts: a row is the problem's name, a track with the bar, the value; the guide marks 1.00x. */
+.chart { --bar: 12px; list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 2px; }
+.row {
+	display: grid; grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr) minmax(2.8rem, auto);
+	align-items: center; gap: 0.6rem; font-size: 0.8rem; border-radius: 4px;
+}
+.row:hover, .row:focus-visible { background: var(--panel); outline: none; }
+.row .name { font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.row .value { font-variant-numeric: tabular-nums; text-align: right; color: var(--fg); }
+.row.loss .value { color: var(--loss); font-weight: 600; }
+.track { position: relative; height: var(--bar); }
+.track::before { content: ""; position: absolute; left: var(--tie); top: -1px; bottom: -1px; width: 1px; background: var(--line); }
+.bar { height: var(--bar); width: var(--w); background: var(--accent); border-radius: 4px; }
+.bar.muted { background: color-mix(in srgb, var(--fg) 28%, var(--bg)); }
+.row.loss .bar { background: var(--loss); }
+.axis { font-size: 0.75rem; color: var(--muted); }
+.axis .track { height: 1.1rem; }
+.tie { position: absolute; right: calc(100% - var(--tie) + 5px); bottom: 0; white-space: nowrap; }
+.reveal.shown .bar { animation: grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+@keyframes grow { from { width: 0; } }
+.row[data-about] .name { cursor: pointer; text-decoration: underline dotted; text-underline-offset: 3px; }
 
 .built { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.75rem; }
 .built li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 10px; }
@@ -220,3 +221,5 @@ footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line
 	.reveal { opacity: 1; transform: none; }
 	.btn:hover, .built li:hover { transform: none; }
 }
+
+.about { color: var(--muted); font-size: 0.9rem; min-height: 2.8em; margin: 0.25rem 0 1.5rem; }
