@@ -1,200 +1,57 @@
 <!doctype html>
-<html lang="pt">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Zap</title>
-<meta name="description" content="A cara do Python, a velocidade do C, a gestão de memória do Rust.">
-<link rel="alternate" hreflang="en" href="../en/index.html">
-<link rel="stylesheet" href="../style.css">
-</head>
-<body>
-<header>
-<nav><a href="../en/index.html" hreflang="en" lang="en">English</a></nav>
-<h1>Zap</h1>
-<p class="tagline">A cara do Python, a velocidade do C, a gestão de memória do Rust.</p>
-</header>
-<main>
-<ul class="points">
+<html lang="pt"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1" name="viewport"><title>Zap</title><link href="../logo.svg" rel="icon" type="image/svg+xml"><meta content="A cara do Python, a velocidade do C, a gestão de memória do Rust." name="description"><link href="../en/index.html" hreflang="en" rel="alternate"><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&amp;family=IBM+Plex+Sans:wght@400;600&amp;family=JetBrains+Mono:wght@400;600&amp;display=swap" rel="stylesheet"><link href="../style.css" rel="stylesheet"></head><body><nav class="top"><div class="inner"><a class="mark" href="./"><img alt="" class="logo" src="../logo.svg">Zap</a><span class="navlinks"><a href="https://github.com/zap-kit/zap">GitHub</a><a href="../en/index.html" hreflang="en" lang="en">English</a></span></div></nav><div class="wrap"><header class="hero"><div class="pitch"><h1>A cara do Python, a velocidade do C, a gestão de memória do Rust.</h1><p class="actions"><a class="btn primary" href="#install">Instalar</a><a class="btn" href="https://github.com/zap-kit/zap">Código no GitHub</a></p><p class="note">Windows x64 hoje, Android em seguida. Experimental, MIT.</p></div><figure class="editor"><figcaption><span class="dots"><i></i><i></i><i></i></span>team.zap</figcaption><pre><code><span class="k">type</span> <span class="t">Pokemon</span>:
+	name <span class="t">str</span>
+	level <span class="t">i64</span>
 
-<li><strong>Do kernel ao script.</strong> Uma só linguagem para todas as camadas, sem precisar trocar de ferramenta.</li>
-
-<li><strong>CPU e GPU do mesmo jeito.</strong> Um shader é Zap, com os mesmos tipos e regras; o <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> é construído sobre isso.</li>
-
-<li><strong>Seguro sem cerimônia.</strong> A memória é verificada em tempo de compilação sem que você escreva nada para isso: sem lifetimes, sem anotações, sem coletor de lixo.</li>
-
-<li><strong>Feito para agentes.</strong> Menos tokens por programa e erros que dizem como corrigir.</li>
-
-<li><strong>Uma ferramenta, sem configuração.</strong> O <code>zap</code> compila, executa, testa, formata e documenta; o compilador gera os executáveis sozinho, sem compilador C nem linker.</li>
-
-</ul>
-<pre><code>type Pokemon:
-	name str
-	level i64
-
-fn train(mut p Pokemon, by i64):
+<span class="k">fn</span> train(<span class="k">mut</span> p <span class="t">Pokemon</span>, by <span class="t">i64</span>):
 	p.level += by
 
-mut team Pokemon[] = [(&quot;Zapdos&quot;, 50), (&quot;Articuno&quot;, 50)]
-team[0].train(3)
-team.push((&quot;Moltres&quot;, 50))
-for p in team:
-	print(&quot;{p.name} {p.level}&quot;)</code></pre>
-<h2>Números</h2>
-
-<p>Tokens por programa, com o mesmo tokenizador para todas as linguagens (comentários e espaços não contam; o total e a razão de cada linguagem contam só os problemas que ela tem):</p>
-<div class="scroll">
-<table>
-<thead><tr><th>tokens</th><th>Zap</th><th>C</th><th>C++</th><th>Rust</th><th>Python</th></tr></thead>
-<tbody>
-
-<tr><td>nbody</td><td>795</td><td>1,546</td><td>-</td><td>1,768</td><td>-</td></tr>
-
-<tr><td>spectralnorm</td><td>372</td><td>1,490</td><td>-</td><td>1,012</td><td>-</td></tr>
-
-<tr><td>fannkuchredux</td><td>677</td><td>1,138</td><td>-</td><td>954</td><td>-</td></tr>
-
-<tr><td>binarytrees</td><td>332</td><td>656</td><td>578</td><td>502</td><td>-</td></tr>
-
-<tr><td>fasta</td><td>724</td><td>1,136</td><td>-</td><td>1,918</td><td>-</td></tr>
-
-<tr><td>mandelbrot</td><td>502</td><td>1,184</td><td>2,919</td><td>1,311</td><td>-</td></tr>
-
-<tr><td>knucleotide</td><td>1,255</td><td>1,171</td><td>1,308</td><td>1,389</td><td>-</td></tr>
-
-<tr><td>revcomp</td><td>1,068</td><td>1,073</td><td>-</td><td>2,036</td><td>-</td></tr>
-
-<tr><td>nsieve</td><td>130</td><td>288</td><td>-</td><td>215</td><td>146</td></tr>
-
-<tr><td>matmul</td><td>236</td><td>407</td><td>-</td><td>339</td><td>229</td></tr>
-
-<tr><td>base64</td><td>651</td><td>951</td><td>-</td><td>830</td><td>-</td></tr>
-
-<tr><td>wordfreq</td><td>211</td><td>992</td><td>-</td><td>541</td><td>-</td></tr>
-
-<tr><td>jsonrecords</td><td>336</td><td>3,447</td><td>-</td><td>2,348</td><td>-</td></tr>
-
-<tr><td>dijkstra</td><td>353</td><td>827</td><td>508</td><td>490</td><td>-</td></tr>
-
-<tr><td>raytrace</td><td>553</td><td>999</td><td>875</td><td>1,013</td><td>-</td></tr>
-
-<tr><td>exprtree</td><td>698</td><td>1,186</td><td>902</td><td>1,083</td><td>-</td></tr>
-
-<tr><td>strsort</td><td>339</td><td>422</td><td>332</td><td>304</td><td>220</td></tr>
-
-<tr><td>total</td><td>9,232</td><td>18,913</td><td>7,422</td><td>18,053</td><td>595</td></tr>
-
-<tr><td>contra o Zap</td><td>1.00x</td><td>2.05x</td><td>1.84x</td><td>1.96x</td><td>0.84x</td></tr>
-
-</tbody>
-</table>
-</div>
-
-
-<p>Tempo e memória dos programas em Zap contra os mesmos programas em C, C++ e Rust (1,00x é empate):</p>
-<div class="scroll">
-<table>
-<thead><tr><th>Zap contra</th><th>ms</th><th>MB</th><th>tempo C</th><th>C++</th><th>Rust</th><th>memória C</th><th>C++</th><th>Rust</th></tr></thead>
-<tbody>
-
-<tr><td>nbody</td><td>1248</td><td>3.3</td><td>0.94x</td><td>-</td><td>0.84x</td><td>0.78x</td><td>-</td><td>0.68x</td></tr>
-
-<tr><td>spectralnorm</td><td>163</td><td>3.7</td><td>0.67x</td><td>-</td><td>0.68x</td><td>0.77x</td><td>-</td><td>0.67x</td></tr>
-
-<tr><td>fannkuchredux</td><td>1801</td><td>3.6</td><td>0.93x</td><td>-</td><td>1.00x</td><td>0.83x</td><td>-</td><td>0.68x</td></tr>
-
-<tr><td>binarytrees</td><td>682</td><td>180.3</td><td>0.08x</td><td>0.73x</td><td>0.63x</td><td>0.69x</td><td>0.54x</td><td>0.66x</td></tr>
-
-<tr><td>fasta</td><td>358</td><td>4.0</td><td>0.39x</td><td>-</td><td>0.53x</td><td>0.95x</td><td>-</td><td>0.77x</td></tr>
-
-<tr><td>mandelbrot</td><td>475</td><td>34.9</td><td>0.62x</td><td>0.97x</td><td>0.97x</td><td>0.99x</td><td>0.97x</td><td>0.98x</td></tr>
-
-<tr><td>knucleotide</td><td>1793</td><td>78.6</td><td>0.66x</td><td>0.73x</td><td>0.81x</td><td>0.60x</td><td>0.53x</td><td>0.45x</td></tr>
-
-<tr><td>revcomp</td><td>225</td><td>130.9</td><td>0.97x</td><td>-</td><td>0.67x</td><td>0.99x</td><td>-</td><td>0.98x</td></tr>
-
-<tr><td>nsieve</td><td>489</td><td>13.1</td><td>0.95x</td><td>-</td><td>0.80x</td><td>0.97x</td><td>-</td><td>0.93x</td></tr>
-
-<tr><td>matmul</td><td>328</td><td>36.2</td><td>0.72x</td><td>-</td><td>0.57x</td><td>0.99x</td><td>-</td><td>0.97x</td></tr>
-
-<tr><td>base64</td><td>266</td><td>321.2</td><td>0.81x</td><td>-</td><td>0.87x</td><td>1.00x</td><td>-</td><td>1.00x</td></tr>
-
-<tr><td>wordfreq</td><td>1141</td><td>96.2</td><td>0.94x</td><td>-</td><td>0.75x</td><td>0.95x</td><td>-</td><td>0.74x</td></tr>
-
-<tr><td>jsonrecords</td><td>721</td><td>163.1</td><td>0.91x</td><td>-</td><td>0.78x</td><td>0.68x</td><td>-</td><td>0.54x</td></tr>
-
-<tr><td>dijkstra</td><td>1200</td><td>95.0</td><td>0.72x</td><td>0.65x</td><td>0.96x</td><td>0.99x</td><td>0.99x</td><td>0.99x</td></tr>
-
-<tr><td>raytrace</td><td>1255</td><td>5.0</td><td>0.94x</td><td>0.92x</td><td>0.64x</td><td>0.98x</td><td>0.97x</td><td>0.87x</td></tr>
-
-<tr><td>exprtree</td><td>1019</td><td>46.7</td><td>0.71x</td><td>0.86x</td><td>0.81x</td><td>0.68x</td><td>0.71x</td><td>0.67x</td></tr>
-
-<tr><td>strsort</td><td>1661</td><td>88.0</td><td>0.83x</td><td>0.74x</td><td>0.80x</td><td>1.00x</td><td>0.43x</td><td>0.50x</td></tr>
-
-<tr><td>pior</td><td></td><td></td><td>0.97x</td><td>0.97x</td><td>1.00x</td><td>1.00x</td><td>0.99x</td><td>1.00x</td></tr>
-
-<tr><td>média geométrica</td><td></td><td></td><td>0.68x</td><td>0.79x</td><td>0.76x</td><td>0.86x</td><td>0.70x</td><td>0.75x</td></tr>
-
-</tbody>
-</table>
-</div>
-
-
-
-<div class="scroll">
-<table>
-<thead><tr><th>Feito com Zap</th><th>linhas de Zap</th></tr></thead>
-<tbody>
-
-<tr><td><a href="https://github.com/zap-kit/zap-engine">Engine</a></td><td>17,694</td></tr>
-
-<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/mario">Mario 64</a></td><td>8,578</td></tr>
-
-<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/ragnarok">Ragnarok</a></td><td>4,841</td></tr>
-
-<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/minecraft">Minecraft</a></td><td>2,444</td></tr>
-
-<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/firered">FireRed</a></td><td>3,578</td></tr>
-
-<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/excel1">Excel 1.00</a></td><td>8,971</td></tr>
-
-<tr><td><a href="https://github.com/zap-kit/zap-projects/tree/main/skate3">Skate 3</a></td><td>3,367</td></tr>
-
-</tbody>
-</table>
-</div>
-
-
-
-<div class="scroll">
-<table>
-<thead><tr><th>O compilador</th><th></th></tr></thead>
-<tbody>
-
-<tr><td>linhas de Zap</td><td>73,060</td></tr>
-
-<tr><td>compila a si mesmo em</td><td>5.6 s</td></tr>
-
-</tbody>
-</table>
-</div>
-
-
-<h2>Compilar</h2>
-<pre><code>bootstrap/zap-seed.exe run build.zap   # -&gt; build/zap.exe
+<span class="k">mut</span> team <span class="t">Pokemon</span>[] = [(<span class="s">"Zapdos"</span>, <span class="n">50</span>), (<span class="s">"Articuno"</span>, <span class="n">50</span>)]
+team[<span class="n">0</span>].train(<span class="n">3</span>)
+team.push((<span class="s">"Moltres"</span>, <span class="n">50</span>))
+<span class="k">for</span> p <span class="k">in</span> team:
+	print(<span class="s">"{p.name} {p.level}"</span>)<span aria-hidden="true" class="cursor"></span></code></pre></figure></header><section aria-label="Números" class="stats"><div class="stat"><b data-count="0.68x">0.68x</b><span>do tempo do C, média geométrica de 17 programas</span></div><div class="stat"><b data-count="0.76x">0.76x</b><span>do tempo do Rust, nos mesmos programas</span></div><div class="stat"><b data-count="0.49x">0.49x</b><span>dos tokens do C, nos mesmos programas</span></div><div class="stat"><b data-count="5.6 s">5.6 s</b><span>para o compilador compilar a si mesmo</span></div></section><section class="reveal"><h2>Por que Zap</h2><ul class="points"><li><strong>Feito para agentes.</strong> Menos tokens por programa e erros que dizem como corrigir.</li><li><strong>Do kernel ao script.</strong> Uma só linguagem para todas as camadas, sem precisar trocar de ferramenta.</li><li><strong>Seguro sem cerimônia.</strong> A memória é verificada em tempo de compilação sem que você escreva nada para isso: sem lifetimes, sem anotações, sem coletor de lixo.</li><li><strong>CPU e GPU do mesmo jeito.</strong> Um shader é Zap, com os mesmos tipos e regras; o <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> é construído sobre isso.</li><li><strong>Uma ferramenta, sem configuração.</strong> O <code>zap</code> compila, executa, testa, formata e documenta; o compilador gera os executáveis sozinho, sem compilador C nem linker.</li></ul></section><section class="reveal" id="install"><h2>Instalar</h2><p>Cole isto no seu agente de código (Claude Code, Codex, Cursor):</p><div class="copybox"><pre id="prompt">Instale a linguagem de programação Zap neste Windows a partir de https://github.com/zap-kit/zap: clone o repositório, rode `bootstrap/zap-seed.exe run build.zap` dentro dele para gerar `build/zap.exe`, adicione essa pasta build ao PATH do meu usuário e rode `zap test spec` para conferir que funciona. Antes de escrever código Zap, leia o AGENTS.md do repositório e use `zap doc` para consultar.</pre><button data-copy="prompt" data-done="Copiado" type="button">Copiar</button></div><p>Ou à mão:</p><div class="copybox"><pre id="manual"><code>git clone https://github.com/zap-kit/zap
+cd zap
+bootstrap/zap-seed.exe run build.zap   # -&gt; build/zap.exe
 zap run app.zap                        # compile and run
 zap build app.zap                      # build/app.exe
-zap test                               # every check</code></pre>
-<h2>Experimental</h2>
-<p>Não é para produção: a linguagem muda com frequência, então construa e quebre rápido. Copie, mude, faça dialetos dela.</p>
-<h2>Licença</h2>
-<p>MIT.</p>
-</main>
-<footer>
-<p>Código-fonte:
-<a href="https://github.com/zap-kit/zap">zap</a> ·
-<a href="https://github.com/zap-kit/zap-engine">zap-engine</a> ·
-<a href="https://github.com/zap-kit/zap-projects">zap-projects</a></p>
-</footer>
-</body>
-</html>
+zap test                               # every check</code></pre><button data-copy="manual" data-done="Copiado" type="button">Copiar</button></div></section><section class="reveal"><h2>Números</h2><p class="intro">Tempo e memória dos programas em Zap contra os mesmos programas em C, C++ e Rust (1,00x é empate):</p><h3>Tempo contra o rival mais rápido (menor é melhor)</h3><ul aria-label="Tempo contra o rival mais rápido (menor é melhor)" class="chart" style="--tie: 83.3%"><li aria-hidden="true" class="row axis"><span></span><div class="track"><span class="tie">1,00x = empate</span></div><span></span></li><li class="row" tabindex="0" title="C 0.39x · Rust 0.53x"><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 44.2%"></div></div><span class="value">0.53x</span></li><li class="row" tabindex="0" title="C 0.67x · Rust 0.68x"><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value">0.68x</span></li><li class="row" tabindex="0" title="C 0.72x · Rust 0.57x"><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 60.0%"></div></div><span class="value">0.72x</span></li><li class="row" tabindex="0" title="C 0.08x · C++ 0.73x · Rust 0.63x"><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 60.8%"></div></div><span class="value">0.73x</span></li><li class="row" tabindex="0" title="C 0.66x · C++ 0.73x · Rust 0.81x"><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 67.5%"></div></div><span class="value">0.81x</span></li><li class="row" tabindex="0" title="C 0.83x · C++ 0.74x · Rust 0.80x"><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value">0.83x</span></li><li class="row" tabindex="0" title="C 0.71x · C++ 0.86x · Rust 0.81x"><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 71.7%"></div></div><span class="value">0.86x</span></li><li class="row" tabindex="0" title="C 0.81x · Rust 0.87x"><span class="name">base64</span><div class="track"><div class="bar" style="--w: 72.5%"></div></div><span class="value">0.87x</span></li><li class="row" tabindex="0" title="C 0.91x · Rust 0.78x"><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 75.8%"></div></div><span class="value">0.91x</span></li><li class="row" tabindex="0" title="C 0.94x · Rust 0.84x"><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">0.94x</span></li><li class="row" tabindex="0" title="C 0.94x · Rust 0.75x"><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">0.94x</span></li><li class="row" tabindex="0" title="C 0.94x · C++ 0.92x · Rust 0.64x"><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">0.94x</span></li><li class="row" tabindex="0" title="C 0.95x · Rust 0.80x"><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">0.95x</span></li><li class="row" tabindex="0" title="C 0.72x · C++ 0.65x · Rust 0.96x"><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 80.0%"></div></div><span class="value">0.96x</span></li><li class="row" tabindex="0" title="C 0.62x · C++ 0.97x · Rust 0.97x"><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">0.97x</span></li><li class="row" tabindex="0" title="C 0.97x · Rust 0.67x"><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">0.97x</span></li><li class="row" tabindex="0" title="C 0.93x · Rust 1.00x"><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">1.00x</span></li></ul><h3>Memória contra o rival que usa menos (menor é melhor)</h3><ul aria-label="Memória contra o rival que usa menos (menor é melhor)" class="chart" style="--tie: 83.3%"><li aria-hidden="true" class="row axis"><span></span><div class="track"><span class="tie">1,00x = empate</span></div><span></span></li><li class="row" tabindex="0" title="C 0.60x · C++ 0.53x · Rust 0.45x"><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 50.0%"></div></div><span class="value">0.60x</span></li><li class="row" tabindex="0" title="C 0.68x · Rust 0.54x"><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value">0.68x</span></li><li class="row" tabindex="0" title="C 0.69x · C++ 0.54x · Rust 0.66x"><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 57.5%"></div></div><span class="value">0.69x</span></li><li class="row" tabindex="0" title="C 0.68x · C++ 0.71x · Rust 0.67x"><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 59.2%"></div></div><span class="value">0.71x</span></li><li class="row" tabindex="0" title="C 0.77x · Rust 0.67x"><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 64.2%"></div></div><span class="value">0.77x</span></li><li class="row" tabindex="0" title="C 0.78x · Rust 0.68x"><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 65.0%"></div></div><span class="value">0.78x</span></li><li class="row" tabindex="0" title="C 0.83x · Rust 0.68x"><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value">0.83x</span></li><li class="row" tabindex="0" title="C 0.95x · Rust 0.77x"><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">0.95x</span></li><li class="row" tabindex="0" title="C 0.95x · Rust 0.74x"><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">0.95x</span></li><li class="row" tabindex="0" title="C 0.97x · Rust 0.93x"><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">0.97x</span></li><li class="row" tabindex="0" title="C 0.98x · C++ 0.97x · Rust 0.87x"><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 81.7%"></div></div><span class="value">0.98x</span></li><li class="row" tabindex="0" title="C 0.99x · C++ 0.97x · Rust 0.98x"><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span></li><li class="row" tabindex="0" title="C 0.99x · Rust 0.98x"><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span></li><li class="row" tabindex="0" title="C 0.99x · Rust 0.97x"><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span></li><li class="row" tabindex="0" title="C 0.99x · C++ 0.99x · Rust 0.99x"><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span></li><li class="row" tabindex="0" title="C 1.00x · Rust 1.00x"><span class="name">base64</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">1.00x</span></li><li class="row" tabindex="0" title="C 1.00x · C++ 0.43x · Rust 0.50x"><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">1.00x</span></li></ul><details><summary>tabela</summary><div class="scroll"><table><thead><tr><th>Zap contra</th><th>ms</th><th>MB</th><th>tempo C</th><th>C++</th><th>Rust</th><th>memória C</th><th>C++</th><th>Rust</th></tr></thead><tbody><tr><td class="">nbody</td><td class="">1248</td><td class="">3.3</td><td class="win">0.94x</td><td class="">-</td><td class="win">0.84x</td><td class="win">0.78x</td><td class="">-</td><td class="win">0.68x</td></tr><tr><td class="">spectralnorm</td><td class="">163</td><td class="">3.7</td><td class="win">0.67x</td><td class="">-</td><td class="win">0.68x</td><td class="win">0.77x</td><td class="">-</td><td class="win">0.67x</td></tr><tr><td class="">fannkuchredux</td><td class="">1801</td><td class="">3.6</td><td class="win">0.93x</td><td class="">-</td><td class="">1.00x</td><td class="win">0.83x</td><td class="">-</td><td class="win">0.68x</td></tr><tr><td class="">binarytrees</td><td class="">682</td><td class="">180.3</td><td class="win">0.08x</td><td class="win">0.73x</td><td class="win">0.63x</td><td class="win">0.69x</td><td class="win">0.54x</td><td class="win">0.66x</td></tr><tr><td class="">fasta</td><td class="">358</td><td class="">4.0</td><td class="win">0.39x</td><td class="">-</td><td class="win">0.53x</td><td class="win">0.95x</td><td class="">-</td><td class="win">0.77x</td></tr><tr><td class="">mandelbrot</td><td class="">475</td><td class="">34.9</td><td class="win">0.62x</td><td class="win">0.97x</td><td class="win">0.97x</td><td class="win">0.99x</td><td class="win">0.97x</td><td class="win">0.98x</td></tr><tr><td class="">knucleotide</td><td class="">1793</td><td class="">78.6</td><td class="win">0.66x</td><td class="win">0.73x</td><td class="win">0.81x</td><td class="win">0.60x</td><td class="win">0.53x</td><td class="win">0.45x</td></tr><tr><td class="">revcomp</td><td class="">225</td><td class="">130.9</td><td class="win">0.97x</td><td class="">-</td><td class="win">0.67x</td><td class="win">0.99x</td><td class="">-</td><td class="win">0.98x</td></tr><tr><td class="">nsieve</td><td class="">489</td><td class="">13.1</td><td class="win">0.95x</td><td class="">-</td><td class="win">0.80x</td><td class="win">0.97x</td><td class="">-</td><td class="win">0.93x</td></tr><tr><td class="">matmul</td><td class="">328</td><td class="">36.2</td><td class="win">0.72x</td><td class="">-</td><td class="win">0.57x</td><td class="win">0.99x</td><td class="">-</td><td class="win">0.97x</td></tr><tr><td class="">base64</td><td class="">266</td><td class="">321.2</td><td class="win">0.81x</td><td class="">-</td><td class="win">0.87x</td><td class="">1.00x</td><td class="">-</td><td class="">1.00x</td></tr><tr><td class="">wordfreq</td><td class="">1141</td><td class="">96.2</td><td class="win">0.94x</td><td class="">-</td><td class="win">0.75x</td><td class="win">0.95x</td><td class="">-</td><td class="win">0.74x</td></tr><tr><td class="">jsonrecords</td><td class="">721</td><td class="">163.1</td><td class="win">0.91x</td><td class="">-</td><td class="win">0.78x</td><td class="win">0.68x</td><td class="">-</td><td class="win">0.54x</td></tr><tr><td class="">dijkstra</td><td class="">1200</td><td class="">95.0</td><td class="win">0.72x</td><td class="win">0.65x</td><td class="win">0.96x</td><td class="win">0.99x</td><td class="win">0.99x</td><td class="win">0.99x</td></tr><tr><td class="">raytrace</td><td class="">1255</td><td class="">5.0</td><td class="win">0.94x</td><td class="win">0.92x</td><td class="win">0.64x</td><td class="win">0.98x</td><td class="win">0.97x</td><td class="win">0.87x</td></tr><tr><td class="">exprtree</td><td class="">1019</td><td class="">46.7</td><td class="win">0.71x</td><td class="win">0.86x</td><td class="win">0.81x</td><td class="win">0.68x</td><td class="win">0.71x</td><td class="win">0.67x</td></tr><tr><td class="">strsort</td><td class="">1661</td><td class="">88.0</td><td class="win">0.83x</td><td class="win">0.74x</td><td class="win">0.80x</td><td class="">1.00x</td><td class="win">0.43x</td><td class="win">0.50x</td></tr><tr><td class="">pior</td><td class=""></td><td class=""></td><td class="win">0.97x</td><td class="win">0.97x</td><td class="">1.00x</td><td class="">1.00x</td><td class="win">0.99x</td><td class="">1.00x</td></tr><tr><td class="">média geométrica</td><td class=""></td><td class=""></td><td class="win">0.68x</td><td class="win">0.79x</td><td class="win">0.76x</td><td class="win">0.86x</td><td class="win">0.70x</td><td class="win">0.75x</td></tr></tbody></table></div></details><p class="intro">Tokens por programa, com o mesmo tokenizador para todas as linguagens (comentários e espaços não contam; o total e a razão de cada linguagem contam só os problemas que ela tem):</p><h3>Tokens contra os do Zap (menor é melhor)</h3><ul aria-label="Tokens contra os do Zap (menor é melhor)" class="chart" style="--tie: 46.5%"><li class="row" tabindex="0" title=""><span class="name">Zap</span><div class="track"><div class="bar" style="--w: 46.5%"></div></div><span class="value">1.00x</span></li><li class="row" tabindex="0" title=""><span class="name">C</span><div class="track"><div class="bar muted" style="--w: 95.2%"></div></div><span class="value">2.05x</span></li><li class="row" tabindex="0" title=""><span class="name">C++</span><div class="track"><div class="bar muted" style="--w: 85.5%"></div></div><span class="value">1.84x</span></li><li class="row" tabindex="0" title=""><span class="name">Rust</span><div class="track"><div class="bar muted" style="--w: 91.1%"></div></div><span class="value">1.96x</span></li><li class="row" tabindex="0" title=""><span class="name">Python</span><div class="track"><div class="bar muted" style="--w: 39.0%"></div></div><span class="value">0.84x</span></li></ul><details><summary>tabela</summary><div class="scroll"><table><thead><tr><th>tokens</th><th>Zap</th><th>C</th><th>C++</th><th>Rust</th><th>Python</th></tr></thead><tbody><tr><td class="">nbody</td><td class="">795</td><td class="">1,546</td><td class="">-</td><td class="">1,768</td><td class="">-</td></tr><tr><td class="">spectralnorm</td><td class="">372</td><td class="">1,490</td><td class="">-</td><td class="">1,012</td><td class="">-</td></tr><tr><td class="">fannkuchredux</td><td class="">677</td><td class="">1,138</td><td class="">-</td><td class="">954</td><td class="">-</td></tr><tr><td class="">binarytrees</td><td class="">332</td><td class="">656</td><td class="">578</td><td class="">502</td><td class="">-</td></tr><tr><td class="">fasta</td><td class="">724</td><td class="">1,136</td><td class="">-</td><td class="">1,918</td><td class="">-</td></tr><tr><td class="">mandelbrot</td><td class="">502</td><td class="">1,184</td><td class="">2,919</td><td class="">1,311</td><td class="">-</td></tr><tr><td class="">knucleotide</td><td class="">1,255</td><td class="">1,171</td><td class="">1,308</td><td class="">1,389</td><td class="">-</td></tr><tr><td class="">revcomp</td><td class="">1,068</td><td class="">1,073</td><td class="">-</td><td class="">2,036</td><td class="">-</td></tr><tr><td class="">nsieve</td><td class="">130</td><td class="">288</td><td class="">-</td><td class="">215</td><td class="">146</td></tr><tr><td class="">matmul</td><td class="">236</td><td class="">407</td><td class="">-</td><td class="">339</td><td class="">229</td></tr><tr><td class="">base64</td><td class="">651</td><td class="">951</td><td class="">-</td><td class="">830</td><td class="">-</td></tr><tr><td class="">wordfreq</td><td class="">211</td><td class="">992</td><td class="">-</td><td class="">541</td><td class="">-</td></tr><tr><td class="">jsonrecords</td><td class="">336</td><td class="">3,447</td><td class="">-</td><td class="">2,348</td><td class="">-</td></tr><tr><td class="">dijkstra</td><td class="">353</td><td class="">827</td><td class="">508</td><td class="">490</td><td class="">-</td></tr><tr><td class="">raytrace</td><td class="">553</td><td class="">999</td><td class="">875</td><td class="">1,013</td><td class="">-</td></tr><tr><td class="">exprtree</td><td class="">698</td><td class="">1,186</td><td class="">902</td><td class="">1,083</td><td class="">-</td></tr><tr><td class="">strsort</td><td class="">339</td><td class="">422</td><td class="">332</td><td class="">304</td><td class="">220</td></tr><tr><td class="">total</td><td class="">9,232</td><td class="">18,913</td><td class="">7,422</td><td class="">18,053</td><td class="">595</td></tr><tr><td class="">contra o Zap</td><td class="">1.00x</td><td class="loss">2.05x</td><td class="loss">1.84x</td><td class="loss">1.96x</td><td class="win">0.84x</td></tr></tbody></table></div></details></section><section class="reveal"><h2>Feito com Zap</h2><ul class="built"><li><a href="https://github.com/zap-kit/zap-engine">Engine</a><span>17,694</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/mario">Mario 64</a><span>8,578</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/ragnarok">Ragnarok</a><span>4,841</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/minecraft">Minecraft</a><span>2,444</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/firered">FireRed</a><span>3,578</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/excel1">Excel 1.00</a><span>8,971</span></li><li><a href="https://github.com/zap-kit/zap-projects/tree/main/skate3">Skate 3</a><span>3,367</span></li></ul></section><footer><p><strong>Experimental.</strong> Não é para produção: a linguagem muda com frequência, então construa e quebre rápido. Copie, mude, faça dialetos dela.</p><p>Licença: MIT. · Código-fonte: <a href="https://github.com/zap-kit/zap">zap</a> · <a href="https://github.com/zap-kit/zap-engine">zap-engine</a> · <a href="https://github.com/zap-kit/zap-projects">zap-projects</a></p></footer></div><script>var top = document.querySelector(".top");
+function scrolled() { top.classList.toggle("scrolled", window.scrollY > 4); }
+addEventListener("scroll", scrolled, { passive: true });
+scrolled();
+var still = matchMedia("(prefers-reduced-motion: reduce)").matches;
+document.querySelectorAll("[data-count]").forEach(function (el) {
+  var m = el.dataset.count.match(/^([0-9.]+)(.*)$/);
+  if (!m || still) return;
+  var end = parseFloat(m[1]), places = (m[1].split(".")[1] || "").length, t0 = null;
+  function step(t) {
+    if (t0 === null) t0 = t;
+    var k = Math.min(1, (t - t0) / 900), e = 1 - Math.pow(1 - k, 3);
+    el.textContent = (end * e).toFixed(places) + m[2];
+    if (k < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+});
+if ("IntersectionObserver" in window && !still) {
+  var seen = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("shown"); seen.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(function (s) { seen.observe(s); });
+} else {
+  document.querySelectorAll(".reveal").forEach(function (s) { s.classList.add("shown"); });
+}
+document.querySelectorAll("button[data-copy]").forEach(function (b) {
+  b.addEventListener("click", function () {
+    var text = document.getElementById(b.dataset.copy).innerText;
+    var label = b.textContent;
+    navigator.clipboard.writeText(text).then(function () {
+      b.textContent = b.dataset.done;
+      setTimeout(function () { b.textContent = label; }, 1500);
+    }, function () {
+      var r = document.createRange();
+      r.selectNodeContents(document.getElementById(b.dataset.copy));
+      getSelection().removeAllRanges();
+      getSelection().addRange(r);
+    });
+  });
+});</script></body></html>
