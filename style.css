@@ -163,11 +163,14 @@ h3 { font: 800 1.1rem var(--display); margin: 2rem 0 0.75rem; }
 .reveal.shown .bar { animation: grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
 @keyframes grow { from { width: 0; } }
 
-.built { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(13rem, 1fr)); gap: 0.75rem; }
-.built li { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.9rem 1rem; border: 1px solid var(--line); border-radius: 10px; }
+.built { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr)); gap: 1rem; }
+.built li { display: flex; flex-direction: column; gap: 0.6rem; padding: 0 0 1rem; border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+.built img { display: block; width: 100%; aspect-ratio: 3 / 2; object-fit: cover; background: var(--line); }
+.built-name { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0 1rem; }
 .built a { font: 800 1.05rem var(--display); text-decoration: none; color: var(--fg); }
 .built a:hover { color: var(--link); }
-.built span { color: var(--muted); font: 0.85rem var(--mono); }
+.built span { color: var(--muted); font: 0.85rem var(--mono); white-space: nowrap; }
+.built p { margin: 0; padding: 0 1rem; color: var(--muted); font-size: 0.92rem; line-height: 1.45; }
 
 footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
 
