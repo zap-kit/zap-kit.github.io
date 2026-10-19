@@ -3,9 +3,11 @@
 	kind <span class="t">str</span>
 	level <span class="t">i64</span>
 
-<span class="k">mut</span> team <span class="t">Pokemon</span>[] = [(<span class="s">"Zapdos"</span>, <span class="s">"electric"</span>, <span class="n">53</span>)]
-team.push((<span class="s">"Moltres"</span>, <span class="s">"fire"</span>, <span class="n">50</span>))
-team.push((<span class="s">"Articuno"</span>, <span class="s">"ice"</span>, <span class="n">50</span>))
+team <span class="t">Pokemon</span>[] = [
+	(<span class="s">"Zapdos"</span>, <span class="s">"electric"</span>, <span class="n">53</span>),
+	(<span class="s">"Moltres"</span>, <span class="s">"fire"</span>, <span class="n">50</span>),
+	(<span class="s">"Articuno"</span>, <span class="s">"ice"</span>, <span class="n">50</span>),
+]
 
 <span class="c"># count each kind; the names are pointed at, not copied</span>
 <span class="k">mut</span> kinds {<span class="k">ref</span> <span class="t">str</span>: <span class="t">i64</span>} = {}
@@ -13,7 +15,7 @@ team.push((<span class="s">"Articuno"</span>, <span class="s">"ice"</span>, <spa
 	kinds.add(p.kind, <span class="n">1</span>)
 
 <span class="c"># the strongest first; a tie goes by name</span>
-<span class="k">for</span> p <span class="k">in</span> team.sortedBy((-.level, .name)):
+<span class="k">for</span> p <span class="k">in</span> team.sortedBy(-.level, .name):
 	print(<span class="s">"{p.name:&lt;9} {p.level:&gt;3}"</span>)
 
 <span class="c"># the total power, on all the processor's cores at once</span>
