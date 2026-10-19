@@ -57,9 +57,9 @@ print(<span class="s">"{kinds.len} kinds, power {power}"</span>)<span class="cur
 </figure>
 </header>
 <section class="stats" aria-label="Numbers">
-<div class="stat"><b data-count="0.68x">0.68x</b><span>time against C, geometric mean of 17 programs</span></div>
-<div class="stat"><b data-count="0.76x">0.76x</b><span>time against Rust, same programs</span></div>
-<div class="stat"><b data-count="0.49x">0.49x</b><span>the tokens of C, same programs</span></div>
+<div class="stat"><b data-count="0.71x">0.71x</b><span>time against C, geometric mean of 17 programs</span></div>
+<div class="stat"><b data-count="0.80x">0.80x</b><span>time against Rust, same programs</span></div>
+<div class="stat"><b data-count="0.46x">0.46x</b><span>the tokens of C, same programs</span></div>
 <div class="stat"><b data-count="5.6 s">5.6 s</b><span>for the compiler to build itself</span></div>
 </section>
 <section class="reveal">
@@ -97,108 +97,108 @@ print(<span class="s">"{kinds.len} kinds, power {power}"</span>)<span class="cur
 <p class="intro">Zap against the best of C, C++ and Rust on each program: under 1.00x, Zap wins.</p>
 <h3>Time</h3>
 <div class="linechart">
-<ul class="chart" style="--tie: 83.3%" aria-label="Time">
+<ul class="chart" style="--tie: 72.2%" aria-label="Time">
 <li class="row axis" aria-hidden="true"><span></span><div class="track"><span class="tie">1.00x = tie</span></div><span></span></li>
-<li class="row" tabindex="0"><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 44.2%"></div></div><span class="value">0.53x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Writes millions of random DNA letters.</span>
-C 0.39x · Rust 0.53x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value">0.68x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Multiplies a huge grid of numbers over and over.</span>
-C 0.67x · Rust 0.68x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 60.0%"></div></div><span class="value">0.72x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Multiplies two big tables of numbers.</span>
-C 0.72x · Rust 0.57x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 60.8%"></div></div><span class="value">0.73x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Builds and throws away millions of little trees of data.</span>
-C 0.08x · C++ 0.73x · Rust 0.63x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 67.5%"></div></div><span class="value">0.81x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Counts the short pieces that repeat in a long DNA text.</span>
-C 0.66x · C++ 0.73x · Rust 0.81x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value">0.83x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Puts millions of words in alphabetical order.</span>
-C 0.83x · C++ 0.74x · Rust 0.80x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 71.7%"></div></div><span class="value">0.86x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Reads math expressions and works out their results.</span>
-C 0.71x · C++ 0.86x · Rust 0.81x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">base64</span><div class="track"><div class="bar" style="--w: 72.5%"></div></div><span class="value">0.87x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Turns data into plain text and back, as email attachments do.</span>
-C 0.81x · Rust 0.87x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 75.8%"></div></div><span class="value">0.91x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Saves a list of records as JSON text and reads it back.</span>
-C 0.91x · Rust 0.78x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">0.94x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Moves the planets around the Sun, step by step.</span>
-C 0.94x · Rust 0.84x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">0.94x</span>
+<li class="row" tabindex="0"><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 53.4%"></div></div><span class="value">0.74x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Counts how often each word appears in a big text.</span>
-C 0.94x · Rust 0.75x</span>
+C 0.58x · C++ 0.34x · Rust 0.74x · Python 0.06x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 78.3%"></div></div><span class="value">0.94x</span>
+<li class="row" tabindex="0"><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 59.9%"></div></div><span class="value">0.83x</span>
 <span class="tip-box" role="tooltip">
-<span class="tip-about">Draws a 3D scene of balls with light and shadows.</span>
-C 0.94x · C++ 0.92x · Rust 0.64x</span>
+<span class="tip-about">Reads math expressions and works out their results.</span>
+C 0.69x · C++ 0.83x · Rust 0.79x · Python 0.04x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">0.95x</span>
+<li class="row" tabindex="0"><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 60.6%"></div></div><span class="value">0.84x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Builds and throws away millions of little trees of data.</span>
+C 0.10x · C++ 0.84x · Rust 0.79x · Python 0.04x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 61.3%"></div></div><span class="value">0.85x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Multiplies two big tables of numbers.</span>
+C 0.84x · C++ 0.85x · Rust 0.66x · Python 0.00x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 62.0%"></div></div><span class="value">0.86x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Counts the short pieces that repeat in a long DNA text.</span>
+C 0.69x · C++ 0.81x · Rust 0.86x · Python 0.06x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">base64</span><div class="track"><div class="bar" style="--w: 62.0%"></div></div><span class="value">0.86x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Turns data into plain text and back, as email attachments do.</span>
+C 0.81x · C++ 0.76x · Rust 0.86x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 65.7%"></div></div><span class="value">0.91x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Multiplies a huge grid of numbers over and over.</span>
+C 0.70x · C++ 0.91x · Rust 0.69x · Python 0.00x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 66.4%"></div></div><span class="value">0.92x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Puts millions of words in alphabetical order.</span>
+C 0.92x · C++ 0.82x · Rust 0.88x · Python 0.05x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 67.8%"></div></div><span class="value">0.94x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Finds every prime number up to a few million.</span>
-C 0.95x · Rust 0.80x</span>
+C 0.94x · C++ 0.94x · Rust 0.80x · Python 0.01x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 80.0%"></div></div><span class="value">0.96x</span>
+<li class="row" tabindex="0"><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 67.8%"></div></div><span class="value">0.94x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Draws a 3D scene of balls with light and shadows.</span>
+C 0.94x · C++ 0.92x · Rust 0.64x · Python 0.00x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 68.5%"></div></div><span class="value">0.95x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Finds the shortest way across a big map, as a GPS does.</span>
-C 0.72x · C++ 0.65x · Rust 0.96x</span>
+C 0.72x · C++ 0.65x · Rust 0.95x · Python 0.02x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">0.97x</span>
+<li class="row" tabindex="0"><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 69.3%"></div></div><span class="value">0.96x</span>
 <span class="tip-box" role="tooltip">
-<span class="tip-about">Draws a famous fractal picture, pixel by pixel.</span>
-C 0.62x · C++ 0.97x · Rust 0.97x</span>
+<span class="tip-about">Moves the planets around the Sun, step by step.</span>
+C 0.96x · C++ 0.89x · Rust 0.85x · Python 0.00x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">0.97x</span>
+<li class="row" tabindex="0"><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 70.7%"></div></div><span class="value">0.98x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Writes millions of random DNA letters.</span>
+C 0.70x · C++ 0.92x · Rust 0.98x · Python 0.02x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 70.7%"></div></div><span class="value">0.98x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Reads DNA backwards and swaps each letter for its pair.</span>
-C 0.97x · Rust 0.67x</span>
+C 0.98x · C++ 0.36x · Rust 0.60x · Python 0.12x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">1.00x</span>
+<li class="row loss" tabindex="0"><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 72.9%"></div></div><span class="value">1.01x slower</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Draws a famous fractal picture, pixel by pixel.</span>
+C 0.63x · C++ 1.01x · Rust 0.99x · Python 0.00x</span>
+</li>
+
+<li class="row loss" tabindex="0"><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 73.6%"></div></div><span class="value">1.02x slower</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Shuffles a deck of cards every possible way and flips them.</span>
-C 0.93x · Rust 1.00x</span>
+C 0.96x · C++ 0.99x · Rust 1.02x · Python 0.01x</span>
+</li>
+
+<li class="row loss" tabindex="0"><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 95.2%"></div></div><span class="value">1.32x slower</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Saves a list of records as JSON text and reads it back.</span>
+C 0.87x · C++ 1.32x · Rust 0.73x · Python 0.13x</span>
 </li>
 
 </ul>
@@ -208,106 +208,106 @@ C 0.93x · Rust 1.00x</span>
 <div class="linechart">
 <ul class="chart" style="--tie: 83.3%" aria-label="Memory">
 <li class="row axis" aria-hidden="true"><span></span><div class="track"><span class="tie">1.00x = tie</span></div><span></span></li>
+<li class="row" tabindex="0"><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 43.3%"></div></div><span class="value">0.52x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Builds and throws away millions of little trees of data.</span>
+C 0.52x · C++ 0.42x · Rust 0.50x · Python 0.50x</span>
+</li>
+
 <li class="row" tabindex="0"><span class="name">knucleotide</span><div class="track"><div class="bar" style="--w: 50.0%"></div></div><span class="value">0.60x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Counts the short pieces that repeat in a long DNA text.</span>
-C 0.60x · C++ 0.53x · Rust 0.45x</span>
+C 0.60x · C++ 0.53x · Rust 0.46x · Python 0.31x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">jsonrecords</span><div class="track"><div class="bar" style="--w: 56.7%"></div></div><span class="value">0.68x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Saves a list of records as JSON text and reads it back.</span>
-C 0.68x · Rust 0.54x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">binarytrees</span><div class="track"><div class="bar" style="--w: 57.5%"></div></div><span class="value">0.69x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Builds and throws away millions of little trees of data.</span>
-C 0.69x · C++ 0.54x · Rust 0.66x</span>
+C 0.68x · C++ 0.59x · Rust 0.54x · Python 0.23x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">exprtree</span><div class="track"><div class="bar" style="--w: 59.2%"></div></div><span class="value">0.71x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Reads math expressions and works out their results.</span>
-C 0.68x · C++ 0.71x · Rust 0.67x</span>
+C 0.68x · C++ 0.71x · Rust 0.67x · Python 0.08x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 64.2%"></div></div><span class="value">0.77x</span>
+<li class="row" tabindex="0"><span class="name">spectralnorm</span><div class="track"><div class="bar" style="--w: 65.0%"></div></div><span class="value">0.78x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Multiplies a huge grid of numbers over and over.</span>
-C 0.77x · Rust 0.67x</span>
+C 0.77x · C++ 0.78x · Rust 0.67x · Python 0.18x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 65.0%"></div></div><span class="value">0.78x</span>
+<li class="row" tabindex="0"><span class="name">nbody</span><div class="track"><div class="bar" style="--w: 65.8%"></div></div><span class="value">0.79x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Moves the planets around the Sun, step by step.</span>
-C 0.78x · Rust 0.68x</span>
+C 0.78x · C++ 0.79x · Rust 0.68x · Python 0.30x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">fannkuchredux</span><div class="track"><div class="bar" style="--w: 69.2%"></div></div><span class="value">0.83x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Shuffles a deck of cards every possible way and flips them.</span>
-C 0.83x · Rust 0.68x</span>
+C 0.83x · C++ 0.76x · Rust 0.68x · Python 0.19x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">0.95x</span>
+<li class="row" tabindex="0"><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 70.8%"></div></div><span class="value">0.85x</span>
 <span class="tip-box" role="tooltip">
-<span class="tip-about">Writes millions of random DNA letters.</span>
-C 0.95x · Rust 0.77x</span>
+<span class="tip-about">Puts millions of words in alphabetical order.</span>
+C 0.85x · C++ 0.37x · Rust 0.43x · Python 0.34x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 79.2%"></div></div><span class="value">0.95x</span>
+<li class="row" tabindex="0"><span class="name">wordfreq</span><div class="track"><div class="bar" style="--w: 74.2%"></div></div><span class="value">0.89x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Counts how often each word appears in a big text.</span>
-C 0.95x · Rust 0.74x</span>
+C 0.89x · C++ 0.64x · Rust 0.63x · Python 0.11x</span>
+</li>
+
+<li class="row" tabindex="0"><span class="name">fasta</span><div class="track"><div class="bar" style="--w: 77.5%"></div></div><span class="value">0.93x</span>
+<span class="tip-box" role="tooltip">
+<span class="tip-about">Writes millions of random DNA letters.</span>
+C 0.93x · C++ 0.62x · Rust 0.76x · Python 0.21x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">nsieve</span><div class="track"><div class="bar" style="--w: 80.8%"></div></div><span class="value">0.97x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Finds every prime number up to a few million.</span>
-C 0.97x · Rust 0.93x</span>
+C 0.97x · C++ 0.97x · Rust 0.93x · Python 0.64x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">raytrace</span><div class="track"><div class="bar" style="--w: 81.7%"></div></div><span class="value">0.98x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Draws a 3D scene of balls with light and shadows.</span>
-C 0.98x · C++ 0.97x · Rust 0.87x</span>
+C 0.98x · C++ 0.97x · Rust 0.87x · Python 0.39x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">mandelbrot</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Draws a famous fractal picture, pixel by pixel.</span>
-C 0.99x · C++ 0.97x · Rust 0.98x</span>
+C 0.99x · C++ 0.97x · Rust 0.98x · Python 1.80x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">revcomp</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Reads DNA backwards and swaps each letter for its pair.</span>
-C 0.99x · Rust 0.98x</span>
+C 0.99x · C++ 0.98x · Rust 0.98x · Python 0.36x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">matmul</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Multiplies two big tables of numbers.</span>
-C 0.99x · Rust 0.97x</span>
+C 0.99x · C++ 0.98x · Rust 0.97x · Python 0.20x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">dijkstra</span><div class="track"><div class="bar" style="--w: 82.5%"></div></div><span class="value">0.99x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Finds the shortest way across a big map, as a GPS does.</span>
-C 0.99x · C++ 0.99x · Rust 0.99x</span>
+C 0.99x · C++ 0.99x · Rust 0.99x · Python 0.11x</span>
 </li>
 
 <li class="row" tabindex="0"><span class="name">base64</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">1.00x</span>
 <span class="tip-box" role="tooltip">
 <span class="tip-about">Turns data into plain text and back, as email attachments do.</span>
-C 1.00x · Rust 1.00x</span>
-</li>
-
-<li class="row" tabindex="0"><span class="name">strsort</span><div class="track"><div class="bar" style="--w: 83.3%"></div></div><span class="value">1.00x</span>
-<span class="tip-box" role="tooltip">
-<span class="tip-about">Puts millions of words in alphabetical order.</span>
-C 1.00x · C++ 0.43x · Rust 0.50x</span>
+C 1.00x · C++ 1.00x · Rust 1.00x</span>
 </li>
 
 </ul>
@@ -316,20 +316,20 @@ C 1.00x · C++ 0.43x · Rust 0.50x</span>
 <p class="intro">How much code each language needs for the same programs, counted in words and symbols: Zap is 1.00x.</p>
 <h3>Size of the code</h3>
 <div class="linechart">
-<ul class="chart" style="--tie: 46.5%" aria-label="Size of the code">
-<li class="row" tabindex="0"><span class="name">Zap</span><div class="track"><div class="bar" style="--w: 46.5%"></div></div><span class="value">1.00x</span>
+<ul class="chart" style="--tie: 40.5%" aria-label="Size of the code">
+<li class="row" tabindex="0"><span class="name">Zap</span><div class="track"><div class="bar" style="--w: 40.5%"></div></div><span class="value">1.00x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">C</span><div class="track"><div class="bar muted" style="--w: 95.2%"></div></div><span class="value">2.05x</span>
+<li class="row" tabindex="0"><span class="name">C</span><div class="track"><div class="bar muted" style="--w: 87.5%"></div></div><span class="value">2.16x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">C++</span><div class="track"><div class="bar muted" style="--w: 85.5%"></div></div><span class="value">1.84x</span>
+<li class="row" tabindex="0"><span class="name">C++</span><div class="track"><div class="bar muted" style="--w: 95.2%"></div></div><span class="value">2.35x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">Rust</span><div class="track"><div class="bar muted" style="--w: 91.1%"></div></div><span class="value">1.96x</span>
+<li class="row" tabindex="0"><span class="name">Rust</span><div class="track"><div class="bar muted" style="--w: 85.1%"></div></div><span class="value">2.10x</span>
 </li>
 
-<li class="row" tabindex="0"><span class="name">Python</span><div class="track"><div class="bar muted" style="--w: 39.0%"></div></div><span class="value">0.84x</span>
+<li class="row" tabindex="0"><span class="name">Python</span><div class="track"><div class="bar muted" style="--w: 43.0%"></div></div><span class="value">1.06x</span>
 </li>
 
 </ul>
