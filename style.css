@@ -10,6 +10,7 @@
 	--link: #3a33d6;
 	--win: #12805c;
 	--loss: #c2362f;
+	--memory: #4f7bd9;
 	--code-bg: #12141c;
 	--code-fg: #e7e8ee;
 	--display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
@@ -27,6 +28,7 @@
 		--link: #9d97ff;
 		--win: #4fd1a1;
 		--loss: #ff7a70;
+		--memory: #7fa4f5;
 		--code-bg: #161922;
 		color-scheme: dark;
 	}
@@ -175,8 +177,10 @@ code { font-family: var(--mono); font-size: 0.9em; }
 .intro { color: var(--muted); max-width: 46rem; }
 h3 { font: 800 1.1rem var(--display); margin: 2rem 0 0.75rem; }
 
-/* Charts: a row is the problem's name, a track with the bar, the value; the guide marks 1.00x. */
+/* Charts: a row is the problem's name, a track with its bars, their values; the guide marks 1.00x.
+   A pair chart's row holds two thinner bars, time over memory. */
 .chart { --bar: 12px; list-style: none; padding: 0; margin: 0 0 1rem; display: grid; gap: 2px; }
+.chart.pair { --bar: 7px; gap: 4px; }
 .row {
 	display: grid; grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr) minmax(2.8rem, auto);
 	align-items: center; gap: 0.6rem; font-size: 0.8rem; border-radius: 4px;
@@ -184,12 +188,21 @@ h3 { font: 800 1.1rem var(--display); margin: 2rem 0 0.75rem; }
 .row:hover, .row:focus-visible { background: var(--panel); outline: none; }
 .row .name { font-family: var(--mono); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .row .value { font-variant-numeric: tabular-nums; text-align: right; color: var(--fg); }
-.row.loss .value { color: var(--loss); font-weight: 600; }
-.track { position: relative; height: var(--bar); }
+.row .value span + span { margin-left: 0.6rem; color: var(--memory); }
+.row .value .loss, .row .value span.loss { color: var(--loss); font-weight: 600; }
+.track { position: relative; display: flex; flex-direction: column; justify-content: center; gap: 2px; min-height: var(--bar); }
 .track::before { content: ""; position: absolute; left: var(--tie); top: -1px; bottom: -1px; width: 1px; background: var(--line); }
 .bar { height: var(--bar); width: var(--w); background: var(--accent); border-radius: 4px; }
+.bar.memory { background: var(--memory); }
 .bar.muted { background: color-mix(in srgb, var(--fg) 28%, var(--bg)); }
-.row.loss .bar { background: var(--loss); }
+.bar.loss { background: var(--loss); }
+.keys { list-style: none; padding: 0; margin: 0 0 0.6rem; display: flex; gap: 1.2rem; font-size: 0.8rem; color: var(--muted); }
+.swatch { display: inline-block; width: 0.9rem; height: 0.6rem; border-radius: 2px; margin-right: 0.4rem; background: var(--accent); }
+.swatch.memory { background: var(--memory); }
+@media (max-width: 480px) {
+	.chart.pair .value span { display: block; }
+	.chart.pair .value span + span { margin-left: 0; }
+}
 .axis { font-size: 0.75rem; color: var(--muted); }
 .axis .track { height: 1.1rem; }
 .tie { position: absolute; right: calc(100% - var(--tie) + 5px); bottom: 0; white-space: nowrap; }
@@ -273,7 +286,7 @@ footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line
 .tip-box::after { content: ""; position: absolute; right: 0.9rem; top: 100%; border: 5px solid transparent; border-top-color: var(--fg); }
 .row:hover .tip-box, .row:focus .tip-box, .tip:focus .tip-box { opacity: 1; transform: none; }
 .row { position: relative; cursor: help; }
-.row .tip-box { white-space: normal; width: max-content; max-width: min(22rem, 80vw); line-height: 1.4; }
+.row .tip-box { white-space: pre-line; width: max-content; max-width: min(22rem, 80vw); line-height: 1.4; }
 /* a row's box over the pointer or the touch (the script sets --tip-x and --tip-y), its arrow at it */
 .row .tip-box { right: auto; left: var(--tip-x, 50%); bottom: auto; top: calc(var(--tip-y, 0px) - 12px); translate: -50% -100%; }
 .row .tip-box::after { right: auto; left: 50%; translate: -50% 0; }
