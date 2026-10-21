@@ -40,14 +40,17 @@ html { scroll-padding-top: 5rem; }
 
 /* The backdrop: two soft glows, the accent's and the link's, drifting slowly behind the page over a
    faint grid of dots that fades down the first screen (still where motion is reduced). */
-body { isolation: isolate; }
-body::before, body::after { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none; }
+body { position: relative; isolation: isolate; overflow-x: hidden; }
+body::before, body::after {
+	content: ""; position: absolute; left: 0; right: 0; top: 0; height: 140vh; z-index: -1;
+	pointer-events: none;
+}
 body::before {
 	background:
-		radial-gradient(42rem 30rem at 12% 8%, color-mix(in srgb, var(--accent) 20%, transparent), transparent 70%),
-		radial-gradient(38rem 32rem at 88% 28%, color-mix(in srgb, var(--link) 16%, transparent), transparent 70%);
-	filter: blur(24px);
-	animation: drift 28s ease-in-out infinite alternate;
+		radial-gradient(42rem 30rem at 12% 8%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 72%),
+		radial-gradient(38rem 32rem at 88% 28%, color-mix(in srgb, var(--link) 18%, transparent), transparent 72%);
+	will-change: transform;
+	animation: drift 18s ease-in-out infinite alternate;
 }
 body::after {
 	background-image: radial-gradient(color-mix(in srgb, var(--fg) 13%, transparent) 1px, transparent 1px);
