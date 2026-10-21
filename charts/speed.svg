@@ -1,0 +1,104 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="838" height="528" viewBox="0 0 838 528" font-family="JetBrains Mono, Consolas, monospace" font-size="13">
+<style>
+.bg { fill: #fbfbfd; } text { fill: #14161f; } .track { fill: #e3e4ea; } .bar, .swatch { fill: #ffd21f; } .muted { fill: #a9adbb; }
+.bar.memory, .swatch.memory, tspan.memory { fill: #4f7bd9; } .bar.loss, tspan.loss { fill: #c2362f; }
+.tie { stroke: #5c6070; stroke-dasharray: 3 3; }
+@media (prefers-color-scheme: dark) {
+.bg { fill: #0e1016; } text { fill: #e8e9ef; } .track { fill: #23262f; } .muted { fill: #4a4e5c; } .tie { stroke: #9a9fb1; }
+.bar.memory, .swatch.memory, tspan.memory { fill: #7fa4f5; } .bar.loss, tspan.loss { fill: #ff7a70; }
+}
+</style>
+<rect class="bg" width="838" height="528" rx="10"/>
+<g transform="translate(14 10)">
+<rect class="swatch" x="150" y="4" width="14" height="10" rx="2"/>
+<text x="170" y="14">Time</text>
+<rect class="swatch memory" x="226" y="4" width="14" height="10" rx="2"/>
+<text x="246" y="14">Memory</text>
+<text x="0" y="46">wordfreq</text>
+<rect class="track" x="150" y="34.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="34.0" width="312.0" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="43.0" width="385.8" height="7" rx="3"/>
+<text x="810" y="46" text-anchor="end"><tspan class="">0.72x</tspan>  <tspan class="memory">0.89x</tspan></text>
+<text x="0" y="74">exprtree</text>
+<rect class="track" x="150" y="62.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="62.0" width="359.8" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="71.0" width="307.8" height="7" rx="3"/>
+<text x="810" y="74" text-anchor="end"><tspan class="">0.83x</tspan>  <tspan class="memory">0.71x</tspan></text>
+<text x="0" y="102">base64</text>
+<rect class="track" x="150" y="90.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="90.0" width="364.0" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="99.0" width="433.2" height="7" rx="3"/>
+<text x="810" y="102" text-anchor="end"><tspan class="">0.84x</tspan>  <tspan class="memory">1.00x</tspan></text>
+<text x="0" y="130">matmul</text>
+<rect class="track" x="150" y="118.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="118.0" width="368.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="127.0" width="429.0" height="7" rx="3"/>
+<text x="810" y="130" text-anchor="end"><tspan class="">0.85x</tspan>  <tspan class="memory">0.99x</tspan></text>
+<text x="0" y="158">spectralnorm</text>
+<rect class="track" x="150" y="146.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="146.0" width="394.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="155.0" width="338.0" height="7" rx="3"/>
+<text x="810" y="158" text-anchor="end"><tspan class="">0.91x</tspan>  <tspan class="memory">0.78x</tspan></text>
+<text x="0" y="186">fasta</text>
+<rect class="track" x="150" y="174.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="174.0" width="394.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="183.0" width="403.0" height="7" rx="3"/>
+<text x="810" y="186" text-anchor="end"><tspan class="">0.91x</tspan>  <tspan class="memory">0.93x</tspan></text>
+<text x="0" y="214">raytrace</text>
+<rect class="track" x="150" y="202.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="202.0" width="394.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="211.0" width="424.8" height="7" rx="3"/>
+<text x="810" y="214" text-anchor="end"><tspan class="">0.91x</tspan>  <tspan class="memory">0.98x</tspan></text>
+<text x="0" y="242">strsort</text>
+<rect class="track" x="150" y="230.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="230.0" width="394.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="239.0" width="368.2" height="7" rx="3"/>
+<text x="810" y="242" text-anchor="end"><tspan class="">0.91x</tspan>  <tspan class="memory">0.85x</tspan></text>
+<text x="0" y="270">revcomp</text>
+<rect class="track" x="150" y="258.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="258.0" width="398.8" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="267.0" width="429.0" height="7" rx="3"/>
+<text x="810" y="270" text-anchor="end"><tspan class="">0.92x</tspan>  <tspan class="memory">0.99x</tspan></text>
+<text x="0" y="298">jsonrecords</text>
+<rect class="track" x="150" y="286.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="286.0" width="398.8" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="295.0" width="403.0" height="7" rx="3"/>
+<text x="810" y="298" text-anchor="end"><tspan class="">0.92x</tspan>  <tspan class="memory">0.93x</tspan></text>
+<text x="0" y="326">fannkuchredux</text>
+<rect class="track" x="150" y="314.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="314.0" width="407.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="323.0" width="359.8" height="7" rx="3"/>
+<text x="810" y="326" text-anchor="end"><tspan class="">0.94x</tspan>  <tspan class="memory">0.83x</tspan></text>
+<text x="0" y="354">binarytrees</text>
+<rect class="track" x="150" y="342.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="342.0" width="407.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="351.0" width="238.2" height="7" rx="3"/>
+<text x="810" y="354" text-anchor="end"><tspan class="">0.94x</tspan>  <tspan class="memory">0.55x</tspan></text>
+<text x="0" y="382">dijkstra</text>
+<rect class="track" x="150" y="370.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="370.0" width="411.8" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="379.0" width="429.0" height="7" rx="3"/>
+<text x="810" y="382" text-anchor="end"><tspan class="">0.95x</tspan>  <tspan class="memory">0.99x</tspan></text>
+<text x="0" y="410">nbody</text>
+<rect class="track" x="150" y="398.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="398.0" width="416.0" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="407.0" width="342.2" height="7" rx="3"/>
+<text x="810" y="410" text-anchor="end"><tspan class="">0.96x</tspan>  <tspan class="memory">0.79x</tspan></text>
+<text x="0" y="438">knucleotide</text>
+<rect class="track" x="150" y="426.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="426.0" width="416.0" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="435.0" width="260.0" height="7" rx="3"/>
+<text x="810" y="438" text-anchor="end"><tspan class="">0.96x</tspan>  <tspan class="memory">0.60x</tspan></text>
+<text x="0" y="466">nsieve</text>
+<rect class="track" x="150" y="454.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="454.0" width="420.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="463.0" width="420.2" height="7" rx="3"/>
+<text x="810" y="466" text-anchor="end"><tspan class="">0.97x</tspan>  <tspan class="memory">0.97x</tspan></text>
+<text x="0" y="494">mandelbrot</text>
+<rect class="track" x="150" y="482.0" width="520" height="16" rx="3"/>
+<rect class="bar" x="150" y="482.0" width="433.2" height="7" rx="3"/>
+<rect class="bar memory" x="150" y="491.0" width="429.0" height="7" rx="3"/>
+<text x="810" y="494" text-anchor="end"><tspan class="">1.00x</tspan>  <tspan class="memory">0.99x</tspan></text>
+<line class="tie" x1="583.2" y1="24" x2="583.2" y2="508"/>
+</g>
+</svg>
