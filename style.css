@@ -74,7 +74,7 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outlin
 
 .hero {
 	display: grid;
-	grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+	grid-template-columns: minmax(0, 1fr);
 	gap: 2.5rem;
 	align-items: center;
 	padding-block: 2.25rem 2rem;
@@ -99,7 +99,7 @@ h1 {
 .btn:hover { transform: translateY(-1px); }
 .note { color: var(--muted); margin: 0; font-size: 0.95rem; }
 
-.editor { margin: 0; background: var(--code-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px -30px rgba(20, 22, 31, 0.6); }
+.editor { margin: 1.5rem 0 0; background: var(--code-bg); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px -30px rgba(20, 22, 31, 0.6); }
 .editor figcaption { display: flex; align-items: center; gap: 0.75rem; padding: 0.6rem 1rem; color: #9a9fb1; font: 0.8rem var(--mono); border-bottom: 1px solid #23262f; }
 .dots { display: inline-flex; gap: 0.35rem; }
 .dots i { width: 0.65rem; height: 0.65rem; border-radius: 50%; background: #3a3e4c; }
@@ -175,7 +175,7 @@ h3 { font: 800 1.1rem var(--display); margin: 2rem 0 0.75rem; }
 footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--line); color: var(--muted); font-size: 0.95rem; }
 
 @media (max-width: 760px) {
-	.hero { grid-template-columns: minmax(0, 1fr); gap: 2rem; padding-block: 2.5rem 2rem; }
+	.hero { gap: 2rem; padding-block: 2.5rem 2rem; }
 	.stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 	.stat:nth-child(3) { padding-left: 0; border-left: 0; }
 	.stat:nth-child(n + 3) { border-top: 1px solid var(--line); }
