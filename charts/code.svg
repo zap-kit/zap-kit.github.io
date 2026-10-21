@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="768" height="148" viewBox="0 0 768 148" font-family="JetBrains Mono, Consolas, monospace" font-size="13">
+<style>
+.bg { fill: #fbfbfd; } text { fill: #14161f; } .track { fill: #e3e4ea; } .bar { fill: #ffd21f; } .muted { fill: #a9adbb; }
+.tie { stroke: #5c6070; stroke-dasharray: 3 3; }
+@media (prefers-color-scheme: dark) {
+.bg { fill: #0e1016; } text { fill: #e8e9ef; } .track { fill: #23262f; } .muted { fill: #4a4e5c; } .tie { stroke: #9a9fb1; }
+}
+</style>
+<rect class="bg" width="768" height="148" rx="10"/>
+<g transform="translate(14 10)">
+<text x="0" y="20">Zap</text>
+<rect class="track" x="150" y="10" width="520" height="12" rx="3"/>
+<rect class="bar" x="150" y="10" width="211.6" height="12" rx="3"/>
+<text x="740" y="20" text-anchor="end">1.00x</text>
+<text x="0" y="44">Python</text>
+<rect class="track" x="150" y="34" width="520" height="12" rx="3"/>
+<rect class="muted" x="150" y="34" width="224.1" height="12" rx="3"/>
+<text x="740" y="44" text-anchor="end">1.06x</text>
+<text x="0" y="68">Rust</text>
+<rect class="track" x="150" y="58" width="520" height="12" rx="3"/>
+<rect class="muted" x="150" y="58" width="444.6" height="12" rx="3"/>
+<text x="740" y="68" text-anchor="end">2.10x</text>
+<text x="0" y="92">C</text>
+<rect class="track" x="150" y="82" width="520" height="12" rx="3"/>
+<rect class="muted" x="150" y="82" width="455.0" height="12" rx="3"/>
+<text x="740" y="92" text-anchor="end">2.15x</text>
+<text x="0" y="116">C++</text>
+<rect class="track" x="150" y="106" width="520" height="12" rx="3"/>
+<rect class="muted" x="150" y="106" width="495.0" height="12" rx="3"/>
+<text x="740" y="116" text-anchor="end">2.34x</text>
+</g>
+</svg>
